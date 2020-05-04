@@ -58,10 +58,10 @@
 			children = (
 				2263993D2455B741000E835C /* AppDelegate.swift */,
 				2263993F2455B741000E835C /* SceneDelegate.swift */,
-				226399412455B741000E835C /* ContentView.swift */,
 				226399432455B743000E835C /* Assets.xcassets */,
 				226399482455B743000E835C /* LaunchScreen.storyboard */,
 				2263994B2455B743000E835C /* Info.plist */,
+				226399512455B9AC000E835C /* View */,
 				226399452455B743000E835C /* Preview Content */,
 			);
 			path = shiritori_world;
@@ -73,6 +73,14 @@
 				226399462455B743000E835C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		226399512455B9AC000E835C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				226399412455B741000E835C /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
