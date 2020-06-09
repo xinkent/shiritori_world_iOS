@@ -20,9 +20,13 @@
 		22C84866248A4F7800A6FD98 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84865248A4F7800A6FD98 /* DataModel.swift */; };
 		22FEB338247A3CB200C1F7B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB337247A3CB200C1F7B3 /* ContentView.swift */; };
 		22FEB33A247A401A00C1F7B3 /* ShiritoriTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */; };
+		52ED3B743C0CE8BAF870D28E /* Pods_shiritori_world.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */; };
+		D6BE9A87248FC8FA006B14B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6BE9A86248FC8FA006B14B3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.release.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.release.xcconfig"; sourceTree = "<group>"; };
+		07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiritori_world.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993A2455B741000E835C /* shiritori_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993D2455B741000E835C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263993F2455B741000E835C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		22C84865248A4F7800A6FD98 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		22FEB337247A3CB200C1F7B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopViewModel.swift; sourceTree = "<group>"; };
+		D6BE9A86248FC8FA006B14B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.debug.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52ED3B743C0CE8BAF870D28E /* Pods_shiritori_world.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,8 @@
 			children = (
 				2263993C2455B741000E835C /* shiritori_world */,
 				2263993B2455B741000E835C /* Products */,
+				67A9E1AC1DBB51C79915A9D8 /* Pods */,
+				B498CB6E818EB0D0B9B3A29F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +84,7 @@
 				226399432455B743000E835C /* Assets.xcassets */,
 				226399482455B743000E835C /* LaunchScreen.storyboard */,
 				2263994B2455B743000E835C /* Info.plist */,
+				D6BE9A86248FC8FA006B14B3 /* GoogleService-Info.plist */,
 				22FEB336247A3C9900C1F7B3 /* ViewModel */,
 				226399512455B9AC000E835C /* View */,
 				22A9800D246FA68A006BC8F4 /* Model */,
@@ -120,6 +130,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		67A9E1AC1DBB51C79915A9D8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */,
+				0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B498CB6E818EB0D0B9B3A29F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -127,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2263994E2455B743000E835C /* Build configuration list for PBXNativeTarget "shiritori_world" */;
 			buildPhases = (
+				DE19A0252A846B8E442EC9B2 /* [CP] Check Pods Manifest.lock */,
 				226399362455B741000E835C /* Sources */,
 				226399372455B741000E835C /* Frameworks */,
 				226399382455B741000E835C /* Resources */,
+				847928FC49AFF0CC69F2920B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -179,12 +209,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				2263994A2455B743000E835C /* LaunchScreen.storyboard in Resources */,
+				D6BE9A87248FC8FA006B14B3 /* GoogleService-Info.plist in Resources */,
 				226399472455B743000E835C /* Preview Assets.xcassets in Resources */,
 				226399442455B743000E835C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		847928FC49AFF0CC69F2920B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE19A0252A846B8E442EC9B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-shiritori_world-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		226399362455B741000E835C /* Sources */ = {
@@ -334,6 +407,7 @@
 		};
 		2263994F2455B743000E835C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -354,6 +428,7 @@
 		};
 		226399502455B743000E835C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
