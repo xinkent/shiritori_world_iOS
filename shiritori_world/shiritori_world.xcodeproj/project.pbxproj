@@ -17,6 +17,7 @@
 		22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */; };
 		22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */; };
 		22A9800F246FA6ED006BC8F4 /* ShiritoriFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */; };
+		22C5D27A2497B23300C129B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C5D2792497B23200C129B9 /* GoogleService-Info.plist */; };
 		22C84864248A4CC300A6FD98 /* ShiritoriListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */; };
 		22C84866248A4F7800A6FD98 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84865248A4F7800A6FD98 /* DataModel.swift */; };
 		22FEB338247A3CB200C1F7B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB337247A3CB200C1F7B3 /* ContentView.swift */; };
@@ -39,6 +40,7 @@
 		22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopView.swift; sourceTree = "<group>"; };
 		22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListView.swift; sourceTree = "<group>"; };
 		22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriFetcher.swift; sourceTree = "<group>"; };
+		22C5D2792497B23200C129B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListViewModel.swift; sourceTree = "<group>"; };
 		22C84865248A4F7800A6FD98 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		22FEB337247A3CB200C1F7B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xinkent.shiritori-world";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
