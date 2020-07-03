@@ -14,8 +14,8 @@ struct Shiritori{
     var shiritoriWords: [ShiritoriWord]
 }
 
-struct ShiritoriWord{
-    var order: Int
+struct ShiritoriWord:Identifiable{
+    var id: Int
     var userID: String
     var lat: Double
     var long: Double

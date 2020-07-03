@@ -7,10 +7,10 @@ target 'shiritori_world' do
 
   # Pods for shiritori_world
    pod 'Firebase/Auth', '6.14.0'
-    pod 'Firebase/Firestore', '6.14.0'
-    pod 'Firebase/Functions', '6.14.0'
-    pod 'Firebase/Messaging', '6.14.0'
-    pod 'Firebase/Storage', '6.14.0'
-
-    pod 'FBSDKLoginKit', '5.13.1'
+   pod 'Firebase/Firestore', '6.14.0'
+   pod 'Firebase/Functions', '6.14.0'
+   pod 'Firebase/Messaging', '6.14.0'
+   pod 'Firebase/Storage', '6.14.0'
+   pod 'Firebase/Analytics', '6.14.0'
+   pod 'FBSDKLoginKit', '5.13.1'
 end
