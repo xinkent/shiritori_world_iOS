@@ -3,17 +3,17 @@ import SwiftUI
 struct ShiritoriListView: View {
     @EnvironmentObject var shiritoriFetcher:ShiritoriFetcher
    
-    let shiritoriWordList:[ShiritoriWord] = [
-        ShiritoriWord(id: 1, order:1,userID:"xinkent",lat:100, long:200, word:"しりとり"),
-        ShiritoriWord(id: 2, order:2,userID:"antyuntyun",lat:100, long:200, word:"りんご"),
-        ShiritoriWord(id: 3, order:3,userID:"xinkent",lat:100, long:200, word:"ごりら"),
-        ShiritoriWord(id: 4, order:4,userID:"antyuntyun",lat:100, long:200, word:"らっぱ"),
-    ]
+//    let shiritoriWordList:[ShiritoriWord] = [
+//        ShiritoriWord(id: 1, order:1,userID:"xinkent",lat:100, long:200, word:"しりとり"),
+//        ShiritoriWord(id: 2, order:2,userID:"antyuntyun",lat:100, long:200, word:"りんご"),
+//        ShiritoriWord(id: 3, order:3,userID:"xinkent",lat:100, long:200, word:"ごりら"),
+//        ShiritoriWord(id: 4, order:4,userID:"antyuntyun",lat:100, long:200, word:"らっぱ"),
+//    ]
     
     var body: some View {
-        List(shiritoriWordList){ shiritoriWord in
+        List(self.shiritoriFetcher.shiritoriWords){ shiritoriWord in
             VStack(alignment: .leading){
-            Text("順番:\(shiritoriWord.order)")
+            Text("順番:\(shiritoriWord.id)")
             .font(.body)
             .padding()
             Text("回答者:\(shiritoriWord.userID)")
@@ -25,6 +25,9 @@ struct ShiritoriListView: View {
             .padding()
             }
         }
+        .onAppear(perform:{
+            self.shiritoriFetcher.fetchShiritori(documentID: "test")
+        })
     }
 }
 
