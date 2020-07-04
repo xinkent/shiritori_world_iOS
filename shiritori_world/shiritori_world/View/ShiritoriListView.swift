@@ -20,7 +20,7 @@ struct ShiritoriListView: View {
             Text("回答者:\(shiritoriWord.userID)")
             .font(.body)
             .padding()
-                Text("回答場所:\(shiritoriWord.address!)")
+                Text("回答場所:\(shiritoriWord.address ?? "???")")
             .font(.body)
             .padding()
             Text("回答ワード:\(shiritoriWord.word)")
