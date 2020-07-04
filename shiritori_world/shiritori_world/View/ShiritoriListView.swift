@@ -2,7 +2,8 @@ import SwiftUI
 
 struct ShiritoriListView: View {
     @EnvironmentObject var shiritoriFetcher:ShiritoriFetcher
-   
+
+//　dummy
 //    let shiritoriWordList:[ShiritoriWord] = [
 //        ShiritoriWord(id: 1, order:1,userID:"xinkent",lat:100, long:200, word:"しりとり"),
 //        ShiritoriWord(id: 2, order:2,userID:"antyuntyun",lat:100, long:200, word:"りんご"),
@@ -19,7 +20,9 @@ struct ShiritoriListView: View {
             Text("回答者:\(shiritoriWord.userID)")
             .font(.body)
             .padding()
-            // TODO:緯度経度から都道府県
+                Text("回答場所:\(shiritoriWord.address ?? "???")")
+            .font(.body)
+            .padding()
             Text("回答ワード:\(shiritoriWord.word)")
             .font(.body)
             .padding()
@@ -30,7 +33,6 @@ struct ShiritoriListView: View {
         })
     }
 }
-
 
 struct ShiritoriListView_Previews: PreviewProvider {
     static var previews: some View {

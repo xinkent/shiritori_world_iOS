@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2256494E24AF64CC00E19779 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2256494D24AF64CC00E19779 /* GoogleService-Info.plist */; };
 		2263993E2455B741000E835C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993D2455B741000E835C /* AppDelegate.swift */; };
 		226399402455B741000E835C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993F2455B741000E835C /* SceneDelegate.swift */; };
 		226399422455B741000E835C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226399412455B741000E835C /* MapView.swift */; };
@@ -17,18 +16,17 @@
 		22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */; };
 		22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */; };
 		22A9800F246FA6ED006BC8F4 /* ShiritoriFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */; };
-		22C5D27A2497B23300C129B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C5D2792497B23200C129B9 /* GoogleService-Info.plist */; };
 		22C84864248A4CC300A6FD98 /* ShiritoriListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */; };
 		22C84866248A4F7800A6FD98 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84865248A4F7800A6FD98 /* DataModel.swift */; };
 		22FEB338247A3CB200C1F7B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB337247A3CB200C1F7B3 /* ContentView.swift */; };
 		22FEB33A247A401A00C1F7B3 /* ShiritoriTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */; };
 		52ED3B743C0CE8BAF870D28E /* Pods_shiritori_world.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */; };
+		D60BA1BA24AF88B20057F83A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D60BA1B924AF88B20057F83A /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.release.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.release.xcconfig"; sourceTree = "<group>"; };
 		07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiritori_world.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2256494D24AF64CC00E19779 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2263993A2455B741000E835C /* shiritori_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993D2455B741000E835C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263993F2455B741000E835C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,11 +38,11 @@
 		22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopView.swift; sourceTree = "<group>"; };
 		22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListView.swift; sourceTree = "<group>"; };
 		22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriFetcher.swift; sourceTree = "<group>"; };
-		22C5D2792497B23200C129B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListViewModel.swift; sourceTree = "<group>"; };
 		22C84865248A4F7800A6FD98 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		22FEB337247A3CB200C1F7B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopViewModel.swift; sourceTree = "<group>"; };
+		D60BA1B924AF88B20057F83A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.debug.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +84,7 @@
 				226399432455B743000E835C /* Assets.xcassets */,
 				226399482455B743000E835C /* LaunchScreen.storyboard */,
 				2263994B2455B743000E835C /* Info.plist */,
-				2256494D24AF64CC00E19779 /* GoogleService-Info.plist */,
+				D60BA1B924AF88B20057F83A /* GoogleService-Info.plist */,
 				22FEB336247A3C9900C1F7B3 /* ViewModel */,
 				226399512455B9AC000E835C /* View */,
 				22A9800D246FA68A006BC8F4 /* Model */,
@@ -210,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2263994A2455B743000E835C /* LaunchScreen.storyboard in Resources */,
-				2256494E24AF64CC00E19779 /* GoogleService-Info.plist in Resources */,
+				D60BA1BA24AF88B20057F83A /* GoogleService-Info.plist in Resources */,
 				226399472455B743000E835C /* Preview Assets.xcassets in Resources */,
 				226399442455B743000E835C /* Assets.xcassets in Resources */,
 			);

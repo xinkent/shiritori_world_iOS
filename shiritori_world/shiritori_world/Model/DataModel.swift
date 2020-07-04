@@ -1,4 +1,5 @@
 import Foundation
+import MapKit
 
 struct User{
     var userID: String
@@ -14,10 +15,17 @@ struct Shiritori{
     var shiritoriWords: [ShiritoriWord]
 }
 
+
+
+
 struct ShiritoriWord:Identifiable{
-    var id: Int
-    var userID: String
-    var lat: Double
-    var long: Double
-    var word: String
+  var id: Int
+  var userID: String
+  var word: String
+  var lat: Double
+  var long: Double
+  var location:CLLocation{
+    CLLocation(latitude: self.lat, longitude: self.long)
+  }
+  var address: String?
 }
