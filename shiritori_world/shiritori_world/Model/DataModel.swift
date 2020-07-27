@@ -8,13 +8,12 @@ struct User{
     var sex:String?
     var isDeleted:Bool=false
     var currentShiritoriID: String?
-    var currentShiritoriName: String? // documentIDのこと
 }
 
 struct Shiritori{
-    var shiritoriID: String
-    var month: String // YYYYMM
-    var shiritoriWords: [ShiritoriWord]
+    var shiritoriID: String?
+    var month: String? // YYYYMM
+    var shiritoriWords: [ShiritoriWord]?
 }
 
 
