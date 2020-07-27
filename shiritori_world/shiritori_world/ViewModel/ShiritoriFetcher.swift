@@ -3,7 +3,6 @@ import SwiftUI
 import MapKit
 
 class ShiritoriFetcher: ObservableObject{
-    // @Published var shiritoriWords:[ShiritoriWord] = []
     @Published var shiritori = Shiritori()
     @Published var user = User()
     let db = Firestore.firestore()
