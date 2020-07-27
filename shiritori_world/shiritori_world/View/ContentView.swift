@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var sf:ShiritoriFetcher
     var body: some View {
         TabView{
             // 地図画面
@@ -16,5 +17,8 @@ struct ContentView: View {
                 Text("新着店")
             }
         }
+        .onAppear(perform:{
+            self.sf.fetchUserShiritori()
+        })
     }
 }

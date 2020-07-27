@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222F1EED24B4B074006435E6 /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222F1EEC24B4B074006435E6 /* UserFetcher.swift */; };
 		2263993E2455B741000E835C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993D2455B741000E835C /* AppDelegate.swift */; };
 		226399402455B741000E835C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993F2455B741000E835C /* SceneDelegate.swift */; };
 		226399422455B741000E835C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226399412455B741000E835C /* MapView.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.release.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.release.xcconfig"; sourceTree = "<group>"; };
 		07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiritori_world.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		222F1EEC24B4B074006435E6 /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		2263993A2455B741000E835C /* shiritori_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993D2455B741000E835C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263993F2455B741000E835C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */,
 				22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */,
 				22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */,
+				222F1EEC24B4B074006435E6 /* UserFetcher.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */,
 				22C84866248A4F7800A6FD98 /* DataModel.swift in Sources */,
 				22C84864248A4CC300A6FD98 /* ShiritoriListViewModel.swift in Sources */,
+				222F1EED24B4B074006435E6 /* UserFetcher.swift in Sources */,
 				22A9800F246FA6ED006BC8F4 /* ShiritoriFetcher.swift in Sources */,
 				22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */,
 				226399422455B741000E835C /* MapView.swift in Sources */,

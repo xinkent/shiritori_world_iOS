@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct ShiritoriTopView: View{
-    @EnvironmentObject var shiritoriFetcher:ShiritoriFetcher
+    @EnvironmentObject var sf:ShiritoriFetcher
     @ObservedObject var vm = ShiritoriTopViewModel()
     @State var longitude = 139.745451
     @State var latitude = 35.658577
     
     var body: some View{
         VStack{
-            ShiritoriAnswerView(vm:self.vm)
+            ShiritoriAnswerView(vm:vm)
             MapView(lon:self.$longitude, lat:self.$latitude)
         }
     }
@@ -17,6 +17,7 @@ struct ShiritoriTopView: View{
 
 struct ShiritoriAnswerView:View{
     @ObservedObject var vm:ShiritoriTopViewModel
+    @EnvironmentObject var sf: ShiritoriFetcher
     var body: some View{
         VStack{
             Spacer().frame(height:50)
@@ -26,11 +27,11 @@ struct ShiritoriAnswerView:View{
                 .foregroundColor(Color.white)
             Text("りんご")
             Spacer().frame(height:50)
-            if(vm.isTurn){
-                TextField("解答入力",text: $vm.word )
-            }
-            Toggle("手番切り替え(開発用)", isOn: $vm.isTurn)
+            TextField("解答入力",text: $vm.word)
             Spacer()
+            Button(action:{self.vm.send_answer(sf:self.sf)}){
+            Text("送信")
+          }
         }.frame(maxWidth:.infinity)
             .frame(height:300)
     }
@@ -57,3 +58,10 @@ struct ShiritoriAnswerView:View{
 //        self.longitude = self.targetLongitude
 //    }
 //}
+
+
+struct ShiritoriTopView_Preview: PreviewProvider {
+    static var previews: some View {
+        ShiritoriTopView().environmentObject(ShiritoriFetcher())
+    }
+}

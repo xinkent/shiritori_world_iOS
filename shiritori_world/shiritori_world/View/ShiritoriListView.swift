@@ -28,9 +28,6 @@ struct ShiritoriListView: View {
             .padding()
             }
         }
-        .onAppear(perform:{
-            self.shiritoriFetcher.fetchShiritori(documentID: "test")
-        })
     }
 }
 
