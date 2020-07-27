@@ -25,7 +25,7 @@ struct ShiritoriAnswerView:View{
                 .font(.title)
                 .background(Color.gray)
                 .foregroundColor(Color.white)
-            Text("りんご")
+            Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
             Spacer().frame(height:50)
             TextField("解答入力",text: $vm.word)
             Spacer()
