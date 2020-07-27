@@ -3,7 +3,7 @@ import SwiftUI
 import MapKit
 
 class ShiritoriFetcher: ObservableObject{
-    @Published var shiritoriWords:[ShiritoriWord] = []
+    @Published var shiritori = Shiritori()
     @Published var user = User()
     let db = Firestore.firestore()
     
@@ -46,16 +46,15 @@ class ShiritoriFetcher: ObservableObject{
                 
             let userID = data["userID"] as? String
             let currentShiritoriID = data["currentShiritoriID"] as? String
-            let currentShiritoriName = data["currentShiritoriName"] as? String
             
-            self.user = User(userID: userID, currentShiritoriID: currentShiritoriID, currentShiritoriName: currentShiritoriName )
+            self.user = User(userID: userID, currentShiritoriID: currentShiritoriID)
             completionClosure()
         }
     }
     
     func fetchShiritori(){
         // shiritoriオブジェクトをFetchする
-        self.db.collection("shiritori_test").document(self.user.currentShiritoriName!)
+        self.db.collection("shiritori_test").document(self.user.currentShiritoriID!)
             .addSnapshotListener { documentSnapshot, error in
         
             // 読み込みエラーもしくは、ドキュメントが存在しない場合処理を中断
@@ -71,15 +70,20 @@ class ShiritoriFetcher: ObservableObject{
             
             // fetchしたドキュメントからフィールドを抽出し、shiritoriWordsを作成
             let shiritoriWordList = data["shiritori_word"] as! [[String:Any]]
-            self.shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
+            var shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
             
             // それぞれのshirotoriWordに対し、非同期で住所情報を取得
-            for i in 0..<self.shiritoriWords.count{
-                let wordLocation = self.shiritoriWords[i].location
+            for i in 0..<shiritoriWords.count{
+                let wordLocation = shiritoriWords[i].location
                 self.getAddress(location:wordLocation){ (result: String) in
-                    self.shiritoriWords[i].address = result
+                    shiritoriWords[i].address = result
                 }
             }
+            
+            let month = data["month"] as! String
+            let shiritori_id = data["shiritori_id"] as! String
+            self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords)
+            
         }
     }
     

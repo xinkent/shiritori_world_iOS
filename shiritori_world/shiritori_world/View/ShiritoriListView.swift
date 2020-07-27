@@ -12,7 +12,7 @@ struct ShiritoriListView: View {
 //    ]
     
     var body: some View {
-        List(self.shiritoriFetcher.shiritoriWords){ shiritoriWord in
+        List(self.shiritoriFetcher.shiritori.shiritoriWords!){ shiritoriWord in
             VStack(alignment: .leading){
             Text("順番:\(shiritoriWord.id)")
             .font(.body)
