@@ -29,9 +29,17 @@ struct ShiritoriWord:Identifiable{
         CLLocation(latitude: self.lat, longitude: self.long)
     }
     var address: String?
+    var answerDate: Date
+    var answerDateStr:String{
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy/MM/dd"
+        let dateStr = formatter.string(from: self.answerDate)
+        return dateStr
+    }
     
     func toFirestoreMap()->[String:Any]{
         ["order": self.id , "user_id":self.userID, "word":self.word, "lat":self.lat,
-         "long":self.long]
+         "long":self.long, "answer_date":self.answerDate]
     }
 }
