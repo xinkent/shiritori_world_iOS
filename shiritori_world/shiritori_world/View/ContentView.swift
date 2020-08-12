@@ -8,13 +8,13 @@ struct ContentView: View {
             ShiritoriTopView()
                 .tabItem{
                     Image(systemName:"mappin.and.ellipse")
-                    Text("Map")
+                    Text("回答画面")
                 }
             // 新着店舗画面
             ShiritoriListView()
             .tabItem{
                 Image(systemName:"list.bullet")
-                Text("新着店")
+                Text("しりとり履歴")
             }
         }
         .onAppear(perform:{
