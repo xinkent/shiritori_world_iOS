@@ -17,7 +17,7 @@ struct ShiritoriListView: View {
             Text("順番:\(shiritoriWord.id)")
             .font(.body)
             .padding()
-            Text("回答者:\(shiritoriWord.userID)")
+                Text("回答者:\(shiritoriWord.name ?? "取得中...")")
             .font(.body)
             .padding()
                 Text("回答場所:\(shiritoriWord.address ?? "???")")

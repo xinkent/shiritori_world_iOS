@@ -45,9 +45,10 @@ class ShiritoriFetcher: ObservableObject{
             print("Firestore User data: \(data)") // debug
                 
             let userID = data["userID"] as? String
+            let name = data["name"] as? String
             let currentShiritoriID = data["currentShiritoriID"] as? String
             
-            self.user = User(userID: userID, currentShiritoriID: currentShiritoriID)
+                self.user = User(userID: userID, name:name, currentShiritoriID: currentShiritoriID)
             completionClosure()
         }
     }
@@ -70,20 +71,23 @@ class ShiritoriFetcher: ObservableObject{
             
             // fetchしたドキュメントからフィールドを抽出し、shiritoriWordsを作成
             let shiritoriWordList = data["shiritori_word"] as! [[String:Any]]
-            var shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
+            let shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
+            let month = data["month"] as! String
+            let shiritori_id = data["shiritori_id"] as! String
+             
+            self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords)
             
             // それぞれのshirotoriWordに対し、非同期で住所情報を取得
             for i in 0..<shiritoriWords.count{
-                let wordLocation = shiritoriWords[i].location
+                self.getUserName(userID: self.shiritori.shiritoriWords![i].userID){ (result: String) in
+                    print("result: \(result)")
+                    self.shiritori.shiritoriWords![i].name = result
+                }
+                let wordLocation = self.shiritori.shiritoriWords![i].location
                 self.getAddress(location:wordLocation){ (result: String) in
-                    shiritoriWords[i].address = result
+                    self.shiritori.shiritoriWords![i].address = result
                 }
             }
-            
-            let month = data["month"] as! String
-            let shiritori_id = data["shiritori_id"] as! String
-            self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords)
-            
         }
     }
     
@@ -102,6 +106,21 @@ class ShiritoriFetcher: ObservableObject{
             }
             print("getAddress: \(administrativeArea)  \(locality)")
             completionClosure("\(administrativeArea)  \(locality)")
+        }
+    }
+    
+    func getUserName(userID:String, completionClosure:@escaping CompletionClosure){
+        var name: String = ""
+        let docRef = self.db.collection("user").document(userID)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                name = document.data()?["name"] as! String
+                completionClosure("\(name)")
+            } else {
+                print("Document does not exist")
+            }
         }
     }
     

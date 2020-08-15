@@ -22,6 +22,7 @@ struct Shiritori{
 struct ShiritoriWord:Identifiable{
     var id: Int
     var userID: String
+    var name: String?
     var word: String
     var lat: Double
     var long: Double
