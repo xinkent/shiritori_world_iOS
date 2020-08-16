@@ -26,6 +26,9 @@ struct ShiritoriListView: View {
             Text("回答ワード:\(shiritoriWord.word)")
             .font(.body)
             .padding()
+            Text("回答日時:\(shiritoriWord.answerDateStr)")
+            .font(.body)
+            .padding()
             }
         }
     }

@@ -68,7 +68,7 @@ class ShiritoriFetcher: ObservableObject{
                 return
             }
             print("Firestore Shiritori data: \(data)") // debug
-            
+             
             // fetchしたドキュメントからフィールドを抽出し、shiritoriWordsを作成
             let shiritoriWordList = data["shiritori_word"] as! [[String:Any]]
             let shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
@@ -132,7 +132,8 @@ class ShiritoriFetcher: ObservableObject{
         let long = shiritoriWord["long"]! as? Double
         let userID = shiritoriWord["user_id"] as? String
         let word = shiritoriWord["word"] as? String
-        return ShiritoriWord(id:id!, userID:userID!, word:word!, lat:lat!, long:long!)
+        let answerDate = (shiritoriWord["answer_date"] as! Timestamp).dateValue()
+        return ShiritoriWord(id:id!, userID:userID!, word:word!, lat:lat!, long:long!, answerDate: answerDate)
     }
     
 }

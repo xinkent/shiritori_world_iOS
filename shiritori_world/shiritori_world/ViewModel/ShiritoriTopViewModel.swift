@@ -14,7 +14,7 @@ class ShiritoriTopViewModel: ObservableObject {
         
         var shiritoriList:[ShiritoriWord] = sf.shiritori.shiritoriWords ?? []
         shiritoriList.append(
-            ShiritoriWord(id:shiritoriList.count + 1, userID:sf.user.userID!, word:self.word, lat:100, long:100)
+            ShiritoriWord(id:shiritoriList.count + 1, userID:sf.user.userID!, word:self.word, lat:100, long:100, answerDate: Date())
         )
         db.collection("shiritori_test").document(sf.user.currentShiritoriID!).setData(
             ["month":"202006",
