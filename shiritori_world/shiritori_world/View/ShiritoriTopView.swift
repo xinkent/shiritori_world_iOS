@@ -28,10 +28,14 @@ struct ShiritoriAnswerView:View{
             Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
             Spacer().frame(height:50)
             TextField("解答入力",text: $vm.word)
+            
+            if !self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
+                Text(self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
+            }
             Spacer()
             Button(action:{self.vm.send_answer(sf:self.sf)}){
-            Text("送信")
-          }
+                Text("送信")
+            }.disabled(!self.vm.validate(prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
         }.frame(maxWidth:.infinity)
             .frame(height:300)
     }

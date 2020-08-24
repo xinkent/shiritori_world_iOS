@@ -2,7 +2,7 @@ import SwiftUI
 import Firebase
 
 class ShiritoriTopViewModel: ObservableObject {
-    @Published var isValid: Bool = true
+//    @Published var isValid: Bool = true
     @Published var isHidden: Bool = false
     @Published var word: String = ""
     @Published var shiritori: Shiritori?
@@ -22,5 +22,77 @@ class ShiritoriTopViewModel: ObservableObject {
             "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}]
             ,merge:false
         )
+    }
+    
+    func isHiraganaOrKatakana() -> Bool{
+        let regex = "^([ぁ-ゞ]|[ァ-ヾ])+$"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
+        return predicate.evaluate(with: self.word)
+    }
+    
+    func isBlank() -> Bool{
+        self.word == ""
+    }
+    
+    func isContainedBlank() -> Bool{
+        let regex = ".*\\s.*"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
+        return predicate.evaluate(with: self.word)
+    }
+    
+    func isSequentialWord(prevWord:String) -> Bool{
+        prevWord.toHiragana().suffix(1) == self.word.toHiragana().prefix(1)
+    }
+    
+    func isEndN() -> Bool{
+        self.word.toHiragana().hasSuffix("ん")
+    }
+    
+    func validate(prevWord:String) -> (isValid:Bool, message:String){
+        if self.isBlank(){
+            return (false, "")
+        } else if self.isContainedBlank(){
+            return (false, "文字中に空白が含まれています")
+        } else if !self.isHiraganaOrKatakana(){
+            return (false, "入力はひらがな・カタカナにしてください")
+        } else if !self.isSequentialWord(prevWord:prevWord){
+            return (false, "しりとりしてください")
+        } else if isEndN(){
+            return (false, "しりとりを終わらせないでください")
+        }
+        else {
+            return(true, "")
+        }
+    }
+}
+
+
+extension String {
+    func toKatakana() -> String {
+        var str = ""
+
+        for c in unicodeScalars {
+            if c.value >= 0x3041 && c.value <= 0x3096 {
+                str += String(describing: UnicodeScalar(c.value + 96)!)
+            } else {
+                str += String(c)
+            }
+        }
+
+        return str
+    }
+
+    func toHiragana() -> String {
+        var str = ""
+
+        for c in unicodeScalars {
+            if c.value >= 0x30A1 && c.value <= 0x30F6 {
+                str += String(describing: UnicodeScalar(c.value - 96)!)
+            } else {
+                str += String(c)
+            }
+        }
+
+        return str
     }
 }
