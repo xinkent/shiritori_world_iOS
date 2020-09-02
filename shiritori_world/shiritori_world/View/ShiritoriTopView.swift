@@ -18,9 +18,13 @@ struct ShiritoriTopView: View{
 struct ShiritoriAnswerView:View{
     @ObservedObject var vm:ShiritoriTopViewModel
     @EnvironmentObject var sf: ShiritoriFetcher
+    @State var order: Int = 1
+    
     var body: some View{
         VStack{
             Spacer().frame(height:50)
+            // TODO: view modelのget_orderを採用できるように非同期処理させるような実装に変更する
+            Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
             Text("現在のワード")
                 .font(.title)
                 .background(Color.gray)

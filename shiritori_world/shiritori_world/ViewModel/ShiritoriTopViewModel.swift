@@ -95,4 +95,8 @@ extension String {
 
         return str
     }
+    
+    func get_order(sf: ShiritoriFetcher)->Int{
+        return (sf.shiritori.shiritoriWords?.count ?? 0  + 1)
+    }
 }
