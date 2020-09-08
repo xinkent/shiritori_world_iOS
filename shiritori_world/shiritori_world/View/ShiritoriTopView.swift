@@ -9,7 +9,6 @@ struct ShiritoriTopView: View{
     var body: some View{
         VStack{
             ShiritoriAnswerView(vm:vm)
-            MapView()
         }
     }
 }
