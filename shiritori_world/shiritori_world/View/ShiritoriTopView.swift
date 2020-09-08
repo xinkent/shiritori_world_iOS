@@ -21,7 +21,7 @@ struct ShiritoriAnswerView:View{
     
     var body: some View{
         VStack{
-            Spacer().frame(height:50)
+            // Spacer().frame(height:50)
             // TODO: view modelのget_orderを採用できるように非同期処理させるような実装に変更する
             Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
             Spacer()
@@ -35,7 +35,8 @@ struct ShiritoriAnswerView:View{
                 .font(.title)
             // Spacer().frame(height:50)
             Spacer()
-            TextField("解答入力",text: $vm.word)
+            TextField("回答者名入力",text: $vm.name)
+            TextField("回答入力",text: $vm.word)
             
             if !self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
                 Text(self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)

@@ -5,6 +5,7 @@ class ShiritoriTopViewModel: ObservableObject {
 //    @Published var isValid: Bool = true
     @Published var isHidden: Bool = false
     @Published var word: String = ""
+    @Published var name: String = "ななしさん"
     @Published var shiritori: Shiritori?
 //    @EnvironmentObject var sf: ShiritoriFetcher
     
@@ -14,12 +15,23 @@ class ShiritoriTopViewModel: ObservableObject {
         
         var shiritoriList:[ShiritoriWord] = sf.shiritori.shiritoriWords ?? []
         shiritoriList.append(
-            ShiritoriWord(id:shiritoriList.count + 1, userID:sf.user.userID!, word:self.word, lat:100, long:100, answerDate: Date())
+            ShiritoriWord(
+                id:shiritoriList.count + 1,
+                userID:sf.user.userID!,
+                name: self.name,
+                word:self.word,
+                lat:100,
+                long:100,
+                answerDate: Date()
+            )
         )
+        // TODO: monthの自動取得
         db.collection("shiritori_test").document(sf.user.currentShiritoriID!).setData(
-            ["month":"202006",
-             "shiritori_id":sf.user.currentShiritoriID!,
-            "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}]
+            [
+                "month":"202006",
+                "shiritori_id":sf.user.currentShiritoriID!,
+                "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}
+            ]
             ,merge:false
         )
     }

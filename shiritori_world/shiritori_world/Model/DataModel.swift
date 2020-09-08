@@ -40,7 +40,14 @@ struct ShiritoriWord:Identifiable{
     }
     
     func toFirestoreMap()->[String:Any]{
-        ["order": self.id , "user_id":self.userID, "word":self.word, "lat":self.lat,
-         "long":self.long, "answer_date":self.answerDate]
+        [
+            "order": self.id,
+            "user_id": self.userID,
+            "name": self.name as Any,
+            "word": self.word,
+            "lat": self.lat,
+            "long": self.long,
+            "answer_date": self.answerDate
+        ]
     }
 }
