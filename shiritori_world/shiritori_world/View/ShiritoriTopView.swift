@@ -2,9 +2,8 @@ import SwiftUI
 
 struct ShiritoriTopView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
+    @EnvironmentObject var lm:LocationManager
     @ObservedObject var vm = ShiritoriTopViewModel()
-    @State var longitude = 139.745451
-    @State var latitude = 35.658577
     
     var body: some View{
         VStack{
@@ -17,6 +16,7 @@ struct ShiritoriTopView: View{
 struct ShiritoriAnswerView:View{
     @ObservedObject var vm:ShiritoriTopViewModel
     @EnvironmentObject var sf: ShiritoriFetcher
+    @EnvironmentObject var lm: LocationManager
     @State var order: Int = 1
     
     var body: some View{
@@ -41,7 +41,7 @@ struct ShiritoriAnswerView:View{
                 Text(self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
             }
             // Spacer()
-            Button(action:{self.vm.send_answer(sf:self.sf)}){
+            Button(action:{self.vm.send_answer(sf:self.sf, lm:self.lm)}){
                 Text("送信")
             }.disabled(!self.vm.validate(prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
         }.frame(maxWidth:.infinity)

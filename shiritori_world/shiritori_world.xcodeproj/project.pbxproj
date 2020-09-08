@@ -13,6 +13,7 @@
 		226399442455B743000E835C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399432455B743000E835C /* Assets.xcassets */; };
 		226399472455B743000E835C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399462455B743000E835C /* Preview Assets.xcassets */; };
 		2263994A2455B743000E835C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226399482455B743000E835C /* LaunchScreen.storyboard */; };
+		2289B97F2507BFC60005D5AE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289B97E2507BFC60005D5AE /* LocationManager.swift */; };
 		22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */; };
 		22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */; };
 		22A9800F246FA6ED006BC8F4 /* ShiritoriFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */; };
@@ -35,6 +36,7 @@
 		226399462455B743000E835C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		226399492455B743000E835C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2263994B2455B743000E835C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2289B97E2507BFC60005D5AE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopView.swift; sourceTree = "<group>"; };
 		22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListView.swift; sourceTree = "<group>"; };
 		22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriFetcher.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */,
 				22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */,
 				22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */,
+				2289B97E2507BFC60005D5AE /* LocationManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				2263993E2455B741000E835C /* AppDelegate.swift in Sources */,
 				226399402455B741000E835C /* SceneDelegate.swift in Sources */,
 				22FEB33A247A401A00C1F7B3 /* ShiritoriTopViewModel.swift in Sources */,
+				2289B97F2507BFC60005D5AE /* LocationManager.swift in Sources */,
 				22FEB338247A3CB200C1F7B3 /* ContentView.swift in Sources */,
 				22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */,
 				22C84866248A4F7800A6FD98 /* DataModel.swift in Sources */,
