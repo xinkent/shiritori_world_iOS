@@ -24,18 +24,23 @@ struct ShiritoriAnswerView:View{
             Spacer().frame(height:50)
             // TODO: view modelのget_orderを採用できるように非同期処理させるような実装に変更する
             Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
+            Spacer()
             Text("現在のワード")
-                .font(.title)
-                .background(Color.gray)
-                .foregroundColor(Color.white)
+                .font(.headline)
+                //.background(Color.gray)
+                //.foregroundColor(Color.white)
+            Text(String((self.sf.shiritori.shiritoriWords?.last!.name) ?? "-----"))
+                .font(.caption)
             Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
-            Spacer().frame(height:50)
+                .font(.title)
+            // Spacer().frame(height:50)
+            Spacer()
             TextField("解答入力",text: $vm.word)
             
             if !self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
                 Text(self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
             }
-            Spacer()
+            // Spacer()
             Button(action:{self.vm.send_answer(sf:self.sf, lm:self.lm)}){
                 Text("送信")
             }.disabled(!self.vm.validate(prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
