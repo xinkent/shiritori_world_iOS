@@ -2,26 +2,28 @@ import SwiftUI
 import Firebase
 
 class ShiritoriTopViewModel: ObservableObject {
-//    @Published var isValid: Bool = true
     @Published var isHidden: Bool = false
     @Published var word: String = ""
     @Published var name: String = "ななしさん"
     @Published var shiritori: Shiritori?
-//    @EnvironmentObject var sf: ShiritoriFetcher
-    
     
     let db = Firestore.firestore()
-    func send_answer(sf: ShiritoriFetcher){
+    func send_answer(sf: ShiritoriFetcher, lm: LocationManager){
         
         var shiritoriList:[ShiritoriWord] = sf.shiritori.shiritoriWords ?? []
+        
+        let lat_default = 35.0
+        let lon_default = 135.0
+        let latitude = lm.location?.latitude ?? lat_default
+        let longitude = lm.location?.longitude ?? lon_default
         shiritoriList.append(
             ShiritoriWord(
                 id:shiritoriList.count + 1,
                 userID:sf.user.userID!,
                 name: self.name,
                 word:self.word,
-                lat:100,
-                long:100,
+                lat:latitude,
+                long:longitude,
                 answerDate: Date()
             )
         )
