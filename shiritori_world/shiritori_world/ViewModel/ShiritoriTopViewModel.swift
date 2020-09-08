@@ -4,6 +4,7 @@ import Firebase
 class ShiritoriTopViewModel: ObservableObject {
     @Published var isHidden: Bool = false
     @Published var word: String = ""
+    @Published var name: String = "ななしさん"
     @Published var shiritori: Shiritori?
     
     let db = Firestore.firestore()
@@ -16,12 +17,23 @@ class ShiritoriTopViewModel: ObservableObject {
         let latitude = lm.location?.latitude ?? lat_default
         let longitude = lm.location?.longitude ?? lon_default
         shiritoriList.append(
-            ShiritoriWord(id:shiritoriList.count + 1, userID:sf.user.userID!, word:self.word, lat:latitude, long:longitude, answerDate: Date())
+            ShiritoriWord(
+                id:shiritoriList.count + 1,
+                userID:sf.user.userID!,
+                name: self.name,
+                word:self.word,
+                lat:latitude,
+                long:longitude,
+                answerDate: Date()
+            )
         )
+        // TODO: monthの自動取得
         db.collection("shiritori_test").document(sf.user.currentShiritoriID!).setData(
-            ["month":"202006",
-             "shiritori_id":sf.user.currentShiritoriID!,
-            "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}]
+            [
+                "month":"202006",
+                "shiritori_id":sf.user.currentShiritoriID!,
+                "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}
+            ]
             ,merge:false
         )
     }

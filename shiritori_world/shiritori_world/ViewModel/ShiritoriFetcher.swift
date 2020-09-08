@@ -74,14 +74,16 @@ class ShiritoriFetcher: ObservableObject{
             let shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
             let month = data["month"] as! String
             let shiritori_id = data["shiritori_id"] as! String
-             
+                
             self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords)
             
             // それぞれのshirotoriWordに対し、非同期で住所情報を取得
             for i in 0..<shiritoriWords.count{
-                self.getUserName(userID: self.shiritori.shiritoriWords![i].userID){ (result: String) in
-                    print("result: \(result)")
-                    self.shiritori.shiritoriWords![i].name = result
+                if (self.shiritori.shiritoriWords![i].name == nil){
+                    self.getUserName(userID: self.shiritori.shiritoriWords![i].userID){ (result: String) in
+                        print("result: \(result)")
+                        self.shiritori.shiritoriWords![i].name = result
+                    }
                 }
                 let wordLocation = self.shiritori.shiritoriWords![i].location
                 self.getAddress(location:wordLocation){ (result: String) in
@@ -131,9 +133,18 @@ class ShiritoriFetcher: ObservableObject{
         let lat = shiritoriWord["lat"]! as? Double
         let long = shiritoriWord["long"]! as? Double
         let userID = shiritoriWord["user_id"] as? String
+        let name = shiritoriWord["name"] as? String
         let word = shiritoriWord["word"] as? String
         let answerDate = (shiritoriWord["answer_date"] as! Timestamp).dateValue()
-        return ShiritoriWord(id:id!, userID:userID!, word:word!, lat:lat!, long:long!, answerDate: answerDate)
+        return ShiritoriWord(
+            id:id!,
+            userID:userID!,
+            name:name ?? "ななしさん",
+            word:word!,
+            lat:lat!,
+            long:long!,
+            answerDate: answerDate
+        )
     }
     
 }
