@@ -2,10 +2,11 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var sf:ShiritoriFetcher
+    @ObservedObject var vm = ShiritoriTopViewModel()
     var body: some View {
         TabView{
             // しりとり回答画面
-            ShiritoriTopView()
+            ShiritoriTopView(vm:vm)
                 .tabItem{
                     Image(systemName:"mappin.and.ellipse")
                     Text("回答画面")

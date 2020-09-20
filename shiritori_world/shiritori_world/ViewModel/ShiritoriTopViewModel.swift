@@ -2,8 +2,11 @@ import SwiftUI
 import Firebase
 
 class ShiritoriTopViewModel: ObservableObject {
-    @Published var isHidden: Bool = false
     @Published var word: String = ""
+    @Published var beforeSent: Bool = false
+    @Published var isSent: Bool = false
+    @Published var valdMessage: String = ""
+    @Published var isError:Bool = false
 //    @Published var name: String = "ななしさん"
 //    @Published var shiritori: Shiritori?
     
@@ -35,7 +38,19 @@ class ShiritoriTopViewModel: ObservableObject {
                 "shiritori_word": shiritoriList.map{$0.toFirestoreMap()}
             ]
             ,merge:false
-        )
+        ){
+            err in
+            if err != nil{
+                self.isError = true
+            } else {
+                print("AlermTest: isSent")
+                self.isSent = true
+            }
+        }
+    }
+    
+    func beforeSend(){
+        self.beforeSent = true
     }
     
     func isHiraganaOrKatakana(word:String) -> Bool{

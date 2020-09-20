@@ -3,13 +3,51 @@ import SwiftUI
 struct ShiritoriTopView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
     @EnvironmentObject var lm:LocationManager
-    @ObservedObject var vm = ShiritoriTopViewModel()
+    @ObservedObject var vm:ShiritoriTopViewModel
+    @State var name = "名無しさん"
+    @State var word = ""
     
     var body: some View{
         VStack{
             currentShiritoriView()
-            ShiritoriAnswerView(vm:vm)
+            ShiritoriAnswerView(vm:vm, name:self.$name, word:self.$word)
+            topAlertView(vm:vm, name:self.$name, word:self.$word)
             Spacer().frame(height:400)
+        }
+    }
+}
+
+struct topAlertView: View{
+    @ObservedObject var vm:ShiritoriTopViewModel
+    @EnvironmentObject var sf: ShiritoriFetcher
+    @EnvironmentObject var lm: LocationManager
+    @Binding var name:String
+    @Binding var word:String
+    var body: some View{
+        VStack{
+            Spacer().alert(isPresented:$vm.beforeSent){
+                Alert(
+                    title: Text("Message"),
+                    message: Text("送信しますか？"),
+                    primaryButton:.default(Text("Yes"),
+                        action:{
+                            self.vm.send_answer(sf: sf, lm: lm, name: name, word: word)
+                        }
+                    ),
+                    secondaryButton: .cancel(Text("cancel"))
+                )
+            }
+            Spacer().alert(isPresented: $vm.isSent) {
+                            Alert(title: Text("Message"),
+                                  message: Text("回答が送信されました！"),
+                                  dismissButton: .default(Text("OK"),
+                                      action:{
+                                        self.name = ""
+                                        self.word = ""
+                                    }
+                                )
+                            )
+            }
         }
     }
 }
@@ -35,8 +73,8 @@ struct ShiritoriAnswerView:View{
     @EnvironmentObject var sf: ShiritoriFetcher
     @EnvironmentObject var lm: LocationManager
     @State var order: Int = 1
-    @State var name = "名無しさん"
-    @State var word = ""
+    @Binding var name:String
+    @Binding var word:String
     
     var body: some View{
         VStack{
@@ -46,7 +84,10 @@ struct ShiritoriAnswerView:View{
             if !self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
                 Text(self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
             }
-            Button(action:{self.vm.send_answer(sf:self.sf, lm:self.lm, name:self.name, word:self.word)}){
+            Button(action:{
+                self.vm.beforeSend()
+                }
+            ){
                 Text("送信")
             }.disabled(!self.vm.validate(currentWord:self.word, prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
         }
@@ -57,8 +98,8 @@ struct ShiritoriAnswerView:View{
 }
 
 
-struct ShiritoriTopView_Preview: PreviewProvider {
-    static var previews: some View {
-        ShiritoriTopView().environmentObject(ShiritoriFetcher())
-    }
-}
+//struct ShiritoriTopView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        ShiritoriTopView().environmentObject(ShiritoriFetcher())
+//    }
+//}
