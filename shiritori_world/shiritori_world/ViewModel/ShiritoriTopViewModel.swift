@@ -5,7 +5,6 @@ class ShiritoriTopViewModel: ObservableObject {
     @Published var word: String = ""
     @Published var beforeSent: Bool = false
     @Published var isSent: Bool = false
-    @Published var valdMessage: String = ""
     @Published var isError:Bool = false
 //    @Published var name: String = "ななしさん"
 //    @Published var shiritori: Shiritori?

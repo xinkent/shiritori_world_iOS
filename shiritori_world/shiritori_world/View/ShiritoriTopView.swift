@@ -38,15 +38,22 @@ struct topAlertView: View{
                 )
             }
             Spacer().alert(isPresented: $vm.isSent) {
-                            Alert(title: Text("Message"),
-                                  message: Text("回答が送信されました！"),
-                                  dismissButton: .default(Text("OK"),
-                                      action:{
-                                        self.name = ""
-                                        self.word = ""
-                                    }
-                                )
-                            )
+                Alert(title: Text("Message"),
+                      message: Text("回答が送信されました！"),
+                      dismissButton: .default(Text("OK"),
+                          action:{
+                            self.name = ""
+                            self.word = ""
+                        }
+                    )
+                )
+            }
+            Spacer().alert(isPresented: $vm.isError) {
+                Alert(title: Text("Message"),
+                      message: Text("送信できませんでした"),
+                      dismissButton: .default(Text("OK")
+                    )
+                )
             }
         }
     }
