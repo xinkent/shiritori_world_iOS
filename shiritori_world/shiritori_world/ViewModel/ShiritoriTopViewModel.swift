@@ -4,11 +4,11 @@ import Firebase
 class ShiritoriTopViewModel: ObservableObject {
     @Published var isHidden: Bool = false
     @Published var word: String = ""
-    @Published var name: String = "ななしさん"
-    @Published var shiritori: Shiritori?
+//    @Published var name: String = "ななしさん"
+//    @Published var shiritori: Shiritori?
     
     let db = Firestore.firestore()
-    func send_answer(sf: ShiritoriFetcher, lm: LocationManager){
+    func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){
         
         var shiritoriList:[ShiritoriWord] = sf.shiritori.shiritoriWords ?? []
         
@@ -20,8 +20,8 @@ class ShiritoriTopViewModel: ObservableObject {
             ShiritoriWord(
                 id:shiritoriList.count + 1,
                 userID:sf.user.userID!,
-                name: self.name,
-                word:self.word,
+                name:name,
+                word:word,
                 lat:latitude,
                 long:longitude,
                 answerDate: Date()
@@ -38,40 +38,40 @@ class ShiritoriTopViewModel: ObservableObject {
         )
     }
     
-    func isHiraganaOrKatakana() -> Bool{
+    func isHiraganaOrKatakana(word:String) -> Bool{
         let regex = "^([ぁ-ゞ]|[ァ-ヾ])+$"
         let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
-        return predicate.evaluate(with: self.word)
+        return predicate.evaluate(with: word)
     }
     
-    func isBlank() -> Bool{
-        self.word == ""
+    func isBlank(word:String) -> Bool{
+        word == ""
     }
     
-    func isContainedBlank() -> Bool{
+    func isContainedBlank(word:String) -> Bool{
         let regex = ".*\\s.*"
         let predicate = NSPredicate(format:"SELF MATCHES %@", regex)
-        return predicate.evaluate(with: self.word)
+        return predicate.evaluate(with: word)
     }
     
-    func isSequentialWord(prevWord:String) -> Bool{
-        prevWord.toHiragana().suffix(1) == self.word.toHiragana().prefix(1)
+    func isSequentialWord(currentWord:String, prevWord:String) -> Bool{
+        prevWord.toHiragana().suffix(1) == currentWord.toHiragana().prefix(1)
     }
     
-    func isEndN() -> Bool{
-        self.word.toHiragana().hasSuffix("ん")
+    func isEndN(word:String) -> Bool{
+        word.toHiragana().hasSuffix("ん")
     }
     
-    func validate(prevWord:String) -> (isValid:Bool, message:String){
-        if self.isBlank(){
+    func validate(currentWord:String, prevWord:String) -> (isValid:Bool, message:String){
+        if self.isBlank(word: currentWord){
             return (false, "")
-        } else if self.isContainedBlank(){
+        } else if self.isContainedBlank(word: currentWord){
             return (false, "文字中に空白が含まれています")
-        } else if !self.isHiraganaOrKatakana(){
+        } else if !self.isHiraganaOrKatakana(word: currentWord){
             return (false, "入力はひらがな・カタカナにしてください")
-        } else if !self.isSequentialWord(prevWord:prevWord){
+        } else if !self.isSequentialWord(currentWord:currentWord, prevWord:prevWord){
             return (false, "しりとりしてください")
-        } else if isEndN(){
+        } else if isEndN(word: currentWord){
             return (false, "しりとりを終わらせないでください")
         }
         else {
