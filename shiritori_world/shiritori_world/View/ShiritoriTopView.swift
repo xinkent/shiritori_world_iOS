@@ -7,70 +7,54 @@ struct ShiritoriTopView: View{
     
     var body: some View{
         VStack{
+            currentShiritoriView()
             ShiritoriAnswerView(vm:vm)
+            Spacer().frame(height:400)
         }
     }
 }
 
+struct currentShiritoriView:View{
+    @EnvironmentObject var sf: ShiritoriFetcher
+    var body: some View{
+        Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
+//        Spacer()
+        Text("現在のワード")
+            .font(.headline)
+            //.background(Color.gray)
+            //.foregroundColor(Color.white)
+        Text(String((self.sf.shiritori.shiritoriWords?.last!.name) ?? "-----"))
+            .font(.caption)
+        Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
+            .font(.title)
+    }
+}
 
 struct ShiritoriAnswerView:View{
     @ObservedObject var vm:ShiritoriTopViewModel
     @EnvironmentObject var sf: ShiritoriFetcher
     @EnvironmentObject var lm: LocationManager
     @State var order: Int = 1
+    @State var name = "名無しさん"
+    @State var word = ""
     
     var body: some View{
         VStack{
-            // Spacer().frame(height:50)
             // TODO: view modelのget_orderを採用できるように非同期処理させるような実装に変更する
-            Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
-            Spacer()
-            Text("現在のワード")
-                .font(.headline)
-                //.background(Color.gray)
-                //.foregroundColor(Color.white)
-            Text(String((self.sf.shiritori.shiritoriWords?.last!.name) ?? "-----"))
-                .font(.caption)
-            Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
-                .font(.title)
-            // Spacer().frame(height:50)
-            Spacer()
-            TextField("回答者名入力",text: $vm.name)
-            TextField("回答入力",text: $vm.word)
-            
-            if !self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
-                Text(self.vm.validate(prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
+            CustomTextFieldView(title:"回答者名入力",text: self.$name)
+            CustomTextFieldView(title:"回答入力", text: self.$word)
+            if !self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).isValid{
+                Text(self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""))).message)
             }
-            // Spacer()
-            Button(action:{self.vm.send_answer(sf:self.sf, lm:self.lm)}){
+            Button(action:{self.vm.send_answer(sf:self.sf, lm:self.lm, name:self.name, word:self.word)}){
                 Text("送信")
-            }.disabled(!self.vm.validate(prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
-        }.frame(maxWidth:.infinity)
-            .frame(height:300)
+            }.disabled(!self.vm.validate(currentWord:self.word, prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")).isValid)
+        }
+        .frame(maxWidth:.infinity)
+//            .frame(height:300)
     }
+    
 }
-
-
-
-//struct ShiritoriTopView: View {
-//    @State dynamic var longitude:Double = 139.745451
-//    @State dynamic var latitude:Double = 35.658577
-//    var targetLongitude:Double = 143.1212
-//    var body: some View {
-//        VStack{
-//            Button(action:{
-//                self.move()
-//            }){
-//                Text("Move")
-//            }
-//            AnimationMapView(lon:self.$longitude, lat:self.$latitude)
-//        }
-//    }
-//
-//    func move(){
-//        self.longitude = self.targetLongitude
-//    }
-//}
 
 
 struct ShiritoriTopView_Preview: PreviewProvider {

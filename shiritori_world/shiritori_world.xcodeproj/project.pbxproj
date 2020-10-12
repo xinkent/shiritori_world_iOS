@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2249E9B32517431F005A22F9 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2249E9B22517431F005A22F9 /* CustomTextFieldView.swift */; };
 		2263993E2455B741000E835C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993D2455B741000E835C /* AppDelegate.swift */; };
 		226399402455B741000E835C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993F2455B741000E835C /* SceneDelegate.swift */; };
 		226399422455B741000E835C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226399412455B741000E835C /* MapView.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.release.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.release.xcconfig"; sourceTree = "<group>"; };
 		07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiritori_world.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2249E9B22517431F005A22F9 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextFieldView.swift; path = shiritori_world/View/CustomTextFieldView.swift; sourceTree = SOURCE_ROOT; };
 		2263993A2455B741000E835C /* shiritori_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993D2455B741000E835C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263993F2455B741000E835C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		226399512455B9AC000E835C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2249E9B22517431F005A22F9 /* CustomTextFieldView.swift */,
 				226399412455B741000E835C /* MapView.swift */,
 				22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */,
 				22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */,
@@ -277,6 +280,7 @@
 				22A9800F246FA6ED006BC8F4 /* ShiritoriFetcher.swift in Sources */,
 				22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */,
 				226399422455B741000E835C /* MapView.swift in Sources */,
+				2249E9B32517431F005A22F9 /* CustomTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
