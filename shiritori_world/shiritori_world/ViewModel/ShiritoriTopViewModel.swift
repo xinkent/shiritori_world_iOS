@@ -6,8 +6,12 @@ class ShiritoriTopViewModel: ObservableObject {
     @Published var beforeSent: Bool = false
     @Published var isSent: Bool = false
     @Published var isError:Bool = false
-//    @Published var name: String = "ななしさん"
-//    @Published var shiritori: Shiritori?
+    @Published var selection: Int = 0 {
+        willSet { // selectionが変更された時、選択肢そのものが更新されるようにする
+            id = UUID()
+        }
+    }
+    @Published var id: UUID = UUID()
     
     let db = Firestore.firestore()
     func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){

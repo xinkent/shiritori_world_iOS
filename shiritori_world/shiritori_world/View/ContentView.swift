@@ -11,7 +11,7 @@ struct ContentView: View {
                     Image(systemName:"mappin.and.ellipse")
                     Text("回答画面")
                 }
-            MapView()
+            MapFrontView(vm:vm)
                 .tabItem{
                     Image(systemName:"mappin.and.ellipse")
                     Text("Map")

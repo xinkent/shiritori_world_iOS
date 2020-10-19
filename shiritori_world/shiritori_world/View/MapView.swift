@@ -1,8 +1,57 @@
 import SwiftUI
 import MapKit
 
+struct MapFrontView: View{
+    @ObservedObject var vm:ShiritoriTopViewModel
+    var body: some View{
+        VStack{
+            // しりとり選択画面
+            SelectShiritoriView(vm:vm)
+            // 地図画面
+            MapView(vm:vm)
+        }
+    }
+}
+
+struct SelectShiritoriView: View{
+    @EnvironmentObject var sf:ShiritoriFetcher
+    @ObservedObject var vm:ShiritoriTopViewModel
+    var body: some View{
+        HStack{
+            Spacer().frame(height:30)
+            
+            VStack{
+                // 1つ前選択ボタン
+                Button(action:{
+                    vm.selection = max(vm.selection - 1, 0)
+                }){
+                    Image(systemName:"chevron.up.square.fill")
+                        .resizable()
+                        .frame(width: 30.0, height: 30.0, alignment: .leading)
+                }
+                Spacer().frame(height:20)
+                // 1つ後選択ボタン
+                Button(action:{
+                    vm.selection = min(vm.selection + 1, sf.shiritori.shiritoriWords!.count-1)
+                }){
+                    Image(systemName:"chevron.down.square.fill")
+                    .resizable()
+                    .frame(width: 30.0, height: 30.0, alignment: .leading)
+                }
+            }
+            // しりとり選択Picker
+            Picker(selection: $vm.selection, label:Text("しりとり選択")) {
+                ForEach(0 ..< self.sf.shiritori.shiritoriWords!.count) {  num in
+                    Text("\(self.sf.shiritori.shiritoriWords![num].id).　\(self.sf.shiritori.shiritoriWords![num].word)")
+                }
+            }.id(vm.id) // 解答追加時に選択肢が更新されるようにする
+        }
+    }
+}
+
 struct MapView:UIViewRepresentable{
     @EnvironmentObject var sf:ShiritoriFetcher
+    @ObservedObject var vm:ShiritoriTopViewModel
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
         let view = MKMapView(frame: .zero)
         view.delegate = context.coordinator
@@ -11,36 +60,37 @@ struct MapView:UIViewRepresentable{
 
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
         
-        // 重複して表示されるのを防ぐため、既に追加されているAnnotationを除去
+        // 重複して表示されるのを防ぐため、既に追加されているAnnotation, overlayを除去
         uiView.removeAnnotations(uiView.annotations)
+        uiView.removeOverlays(uiView.overlays)
+        
         if let shiritoriWords = sf.shiritori.shiritoriWords{
-            DispatchQueue.global(qos: .utility).async{
-                for i in 0..<shiritoriWords.count{
-                    let word = shiritoriWords[i]
-                    let annotation = MKPointAnnotation()
-                    print(word)
-                    let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
-                    annotation.title = word.word
-                    annotation.coordinate = centerCoord
-                    
-                    // 直線の描画
-                    if i > 0{
-                        let preWord = shiritoriWords[i-1]
-                        let preCoord = CLLocationCoordinate2D(latitude:preWord.lat, longitude: preWord.long)
-                        let coordinates = [preCoord , centerCoord]
-                        let polyLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
-                        uiView.addOverlay(polyLine)
-                    }
-                    
-                    // annotationの描画
-                    uiView.addAnnotation(annotation)
-                    
-                    let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
-                    let region = MKCoordinateRegion(center:centerCoord, span:span)
-                    uiView.setRegion(region, animated:true)
-                    Thread.sleep(forTimeInterval: 1.0)
+            
+            for i in 0...vm.selection{
+                let word = shiritoriWords[i]
+                let annotation = MKPointAnnotation()
+                print(word)
+                let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
+                annotation.title = word.word
+                annotation.coordinate = centerCoord
+                // 直線の描画
+                if i > 0{
+                    let preWord = shiritoriWords[i-1]
+                    let preCoord = CLLocationCoordinate2D(latitude:preWord.lat, longitude: preWord.long)
+                    let coordinates = [preCoord , centerCoord]
+                    let polyLine = MKPolyline(coordinates: coordinates, count: coordinates.count)
+                    uiView.addOverlay(polyLine)
                 }
+                // annotationの描画
+                uiView.addAnnotation(annotation)
             }
+            // 選択されたしりとりに表示位置を合わせる
+            let word = shiritoriWords[vm.selection]
+            let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
+            let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
+            let region = MKCoordinateRegion(center:centerCoord, span:span)
+            uiView.setRegion(region, animated:true)
+            
         }
     }
     
@@ -84,5 +134,5 @@ struct MapView:UIViewRepresentable{
             return MKOverlayRenderer()
         }
     }
-    
+
 }

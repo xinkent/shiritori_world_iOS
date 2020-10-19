@@ -7,6 +7,7 @@ class ShiritoriFetcher: ObservableObject{
     @Published var user = User()
     let db = Firestore.firestore()
     
+    
     func fetchUserShiritori(){
     // User情報を取得した後、そのUserに紐づくshiritoriデータを取得する
     // TODO：取得DocumentIDの指定方法検討
