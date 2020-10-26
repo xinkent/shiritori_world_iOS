@@ -80,7 +80,7 @@ class ShiritoriTopViewModel: ObservableObject {
         word.toHiragana().hasSuffix("ん")
     }
     
-    func validate(currentWord:String, prevWord:String) -> (isValid:Bool, message:String){
+    func validate(currentWord:String, prevWord:String, name:String) -> (isValid:Bool, message:String){
         if self.isBlank(word: currentWord){
             return (false, "")
         } else if self.isContainedBlank(word: currentWord){
@@ -89,8 +89,10 @@ class ShiritoriTopViewModel: ObservableObject {
             return (false, "入力はひらがな・カタカナにしてください")
         } else if !self.isSequentialWord(currentWord:currentWord, prevWord:prevWord){
             return (false, "しりとりしてください")
-        } else if isEndN(word: currentWord){
+        } else if self.isEndN(word: currentWord){
             return (false, "しりとりを終わらせないでください")
+        } else if self.isBlank(word: name){
+            return (false, "回答者名を入力してください")
         }
         else {
             return(true, "")
