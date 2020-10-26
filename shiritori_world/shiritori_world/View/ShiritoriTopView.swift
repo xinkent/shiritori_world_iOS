@@ -4,7 +4,7 @@ struct ShiritoriTopView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
     @EnvironmentObject var lm:LocationManager
     @ObservedObject var vm:ShiritoriTopViewModel
-    @State var name = "名無しさん"
+    @State var name = UserDefaults.standard.value(forKey: "username") as? String ?? "名無しさん"
     @State var word = ""
     
     var body: some View{
@@ -42,7 +42,7 @@ struct topAlertView: View{
                       message: Text("回答が送信されました！"),
                       dismissButton: .default(Text("OK"),
                           action:{
-                            self.name = ""
+                            // 送信成功した場合は入力文字を初期化
                             self.word = ""
                         }
                     )

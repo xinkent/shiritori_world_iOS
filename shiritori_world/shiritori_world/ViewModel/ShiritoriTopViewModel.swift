@@ -46,8 +46,9 @@ class ShiritoriTopViewModel: ObservableObject {
             if err != nil{
                 self.isError = true
             } else {
-                print("AlermTest: isSent")
                 self.isSent = true
+                // UserDefaultに名前を保存
+                UserDefaults.standard.set(name, forKey: "username")
             }
         }
     }
