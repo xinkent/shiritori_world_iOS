@@ -5,6 +5,9 @@ struct MapFrontView: View{
     @ObservedObject var vm:ShiritoriTopViewModel
     var body: some View{
         VStack{
+            Spacer().font(.headline).frame(height:20)
+            // タイトル
+            Text("これまでのしりとり")
             // しりとり選択画面
             SelectShiritoriView(vm:vm)
             // 地図画面
