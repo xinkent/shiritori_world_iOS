@@ -1,1 +1,0 @@
-# shiritori_world
