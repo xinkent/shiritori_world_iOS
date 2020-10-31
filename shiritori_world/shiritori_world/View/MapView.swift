@@ -75,7 +75,11 @@ struct MapView:UIViewRepresentable{
                 if word.lat < 0{
                     continue
                 }
-                let annotation = MKPointAnnotation()
+                let annotation = CustomPointAnnotation()
+                // 選択中のものにはフラグをつける
+                if i == vm.selection{
+                    annotation.isSelected = true
+                }
                 
                 let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
                 // annotation.title = String(word.id)+ ". " + word.word + " " + word.name!
@@ -140,9 +144,15 @@ struct MapView:UIViewRepresentable{
             // pinView.collisionMode = .circle
             
             let pinIdentifier = "PinAnnotationIdentifier"
+            let customAnnotation = annotation as! CustomPointAnnotation
+            let isSelected = customAnnotation.isSelected
             let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
-            // アニメーションをつける.
-            pinView.animatesDrop = true
+            // 選択中のピンのみアニメーションをつける.
+            if isSelected{
+                pinView.animatesDrop = true
+            } else {
+                pinView.animatesDrop = false
+            }
             // コールアウトを表示する.
             pinView.canShowCallout = true
             // annotationを設定.
@@ -163,4 +173,10 @@ struct MapView:UIViewRepresentable{
         }
     }
 
+}
+
+
+// 選択中のアノテーションを識別するため、カスタムアノテーションクラスを作成
+class CustomPointAnnotation: MKPointAnnotation {
+    var isSelected:Bool = false
 }
