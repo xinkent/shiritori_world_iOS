@@ -71,8 +71,12 @@ struct MapView:UIViewRepresentable{
             
             for i in 0...vm.selection{
                 let word = shiritoriWords[i]
+                // 位置情報み取得のしりとりは表示しない
+                if word.lat < 0{
+                    continue
+                }
                 let annotation = MKPointAnnotation()
-                print(word)
+                
                 let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
                 annotation.title = word.word
                 annotation.coordinate = centerCoord
@@ -87,13 +91,20 @@ struct MapView:UIViewRepresentable{
                 // annotationの描画
                 uiView.addAnnotation(annotation)
             }
-            // 選択されたしりとりに表示位置を合わせる
-            let word = shiritoriWords[vm.selection]
+            // 選択されたしりとりに最も近い位置情報取得可能なしりとりに表示位置を合わせる
+            var selection = vm.selection
+            while (shiritoriWords[selection].lat < 0) && (vm.selection > 0){
+                selection -= 1
+            }
+            let word = shiritoriWords[selection]
             let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
-            // let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
-            let region = MKCoordinateRegion(center:centerCoord, span:uiView.region.span)
+            var span = uiView.region.span
+            // 初期表示だけ、デフォルトのspanを設定
+            if selection == 0{
+                span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
+            }
+            let region = MKCoordinateRegion(center:centerCoord, span:span)
             uiView.setRegion(region, animated:true)
-            
         }
     }
     

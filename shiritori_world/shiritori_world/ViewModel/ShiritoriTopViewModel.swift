@@ -12,16 +12,16 @@ class ShiritoriTopViewModel: ObservableObject {
         }
     }
     @Published var id: UUID = UUID()
+    let defaultLon = -1.0
+    let defaultLat = -1.0
     
     let db = Firestore.firestore()
     func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){
         
         var shiritoriList:[ShiritoriWord] = sf.shiritori.shiritoriWords ?? []
         
-        let lat_default = 35.0
-        let lon_default = 135.0
-        let latitude = lm.location?.latitude ?? lat_default
-        let longitude = lm.location?.longitude ?? lon_default
+        let latitude = lm.location?.latitude ?? self.defaultLon
+        let longitude = lm.location?.longitude ?? self.defaultLat
         shiritoriList.append(
             ShiritoriWord(
                 id:shiritoriList.count + 1,
