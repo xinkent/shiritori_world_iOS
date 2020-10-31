@@ -90,8 +90,8 @@ struct MapView:UIViewRepresentable{
             // 選択されたしりとりに表示位置を合わせる
             let word = shiritoriWords[vm.selection]
             let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
-            let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
-            let region = MKCoordinateRegion(center:centerCoord, span:span)
+            // let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
+            let region = MKCoordinateRegion(center:centerCoord, span:uiView.region.span)
             uiView.setRegion(region, animated:true)
             
         }
