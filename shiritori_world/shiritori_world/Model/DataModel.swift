@@ -14,6 +14,7 @@ struct Shiritori{
     var shiritoriID: String?
     var month: String? // YYYYMM
     var shiritoriWords: [ShiritoriWord]?
+    var totalDistanceKM: Int?
 }
 
 

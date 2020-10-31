@@ -12,8 +12,8 @@ class ShiritoriTopViewModel: ObservableObject {
         }
     }
     @Published var id: UUID = UUID()
-    let defaultLon = -1.0
-    let defaultLat = -1.0
+    let defaultLon = -999.0
+    let defaultLat = -999.0
     
     let db = Firestore.firestore()
     func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){
