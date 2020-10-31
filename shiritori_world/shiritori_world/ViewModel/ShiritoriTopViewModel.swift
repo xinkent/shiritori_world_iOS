@@ -85,6 +85,10 @@ class ShiritoriTopViewModel: ObservableObject {
         word.toHiragana().hasSuffix("ー")
     }
     
+    func isValidLength(word:String) -> Bool{
+        word.count <= 12
+    }
+    
     func validate(currentWord:String, prevWord:String, name:String) -> (isValid:Bool, message:String){
         if self.isBlank(word: currentWord){
             return (false, "")
@@ -96,7 +100,9 @@ class ShiritoriTopViewModel: ObservableObject {
             return (false, "しりとりしてください")
         } else if self.isEndHiphen(word: currentWord){
             return (false, "-で終わらないでください")
-        }else if self.isEndN(word: currentWord){
+        } else if !self.isValidLength(word: currentWord){
+            return (false, "文字数は12文字までです")
+        } else if self.isEndN(word: currentWord){
             return (false, "しりとりを終わらせないでください")
         } else if self.isBlank(word: name){
             return (false, "回答者名を入力してください")
