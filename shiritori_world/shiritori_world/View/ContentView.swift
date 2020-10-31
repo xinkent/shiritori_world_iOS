@@ -8,7 +8,7 @@ struct ContentView: View {
             // しりとり回答画面
             ShiritoriTopView(vm:vm)
                 .tabItem{
-                    Image(systemName:"mappin.and.ellipse")
+                    Image(systemName:"paperplane")
                     Text("回答画面")
                 }
             MapFrontView(vm:vm)
