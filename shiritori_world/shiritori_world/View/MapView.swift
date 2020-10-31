@@ -74,7 +74,8 @@ struct MapView:UIViewRepresentable{
                 let annotation = MKPointAnnotation()
                 print(word)
                 let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
-                annotation.title = word.word
+                // annotation.title = String(word.id)+ ". " + word.word + " " + word.name!
+                annotation.title = "\(word.id). \(word.word) (\(word.name!) さん)"
                 annotation.coordinate = centerCoord
                 // 直線の描画
                 if i > 0{
@@ -86,6 +87,9 @@ struct MapView:UIViewRepresentable{
                 }
                 // annotationの描画
                 uiView.addAnnotation(annotation)
+                // 常時表示
+                uiView.selectedAnnotations = [annotation]
+
             }
             // 選択されたしりとりに表示位置を合わせる
             let word = shiritoriWords[vm.selection]
@@ -115,14 +119,24 @@ struct MapView:UIViewRepresentable{
             if annotation is MKUserLocation {
                 return nil
             }
-            let reuseId = "pin"
+            // let reuseId = "pin"
 //            var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKMarkerAnnotationView
-              let pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-                //ピンの色を黄色に変更
-            pinView.markerTintColor = .red
-            pinView.displayPriority = .required
-            pinView.clusteringIdentifier = "identifier"
-            pinView.collisionMode = .circle
+              // let pinView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            //ピンの色を黄色に変更
+            // pinView.markerTintColor = .red
+            // pinView.displayPriority = .required
+            // pinView.clusteringIdentifier = "identifier"
+            // pinView.collisionMode = .circle
+            
+            let pinIdentifier = "PinAnnotationIdentifier"
+            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+            // アニメーションをつける.
+            pinView.animatesDrop = true
+            // コールアウトを表示する.
+            pinView.canShowCallout = true
+            // annotationを設定.
+            pinView.annotation = annotation
+            
             return pinView
         }
         
