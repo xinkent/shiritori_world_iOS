@@ -3,10 +3,19 @@ import MapKit
 
 struct MapFrontView: View{
     @ObservedObject var vm:ShiritoriTopViewModel
+    @EnvironmentObject var sf:ShiritoriFetcher
     var body: some View{
         VStack{
             Spacer().font(.headline).frame(height:20)
             // タイトル
+            HStack{
+                Text("移動総距離")
+                Text("\(sf.shiritori.totalDistanceKM!)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text("Km")
+            }
+            Spacer().frame(maxHeight:40)
             Text("これまでのしりとり")
             // しりとり選択画面
             SelectShiritoriView(vm:vm)
@@ -97,7 +106,7 @@ struct MapView:UIViewRepresentable{
             }
             // 選択されたしりとりに最も近い位置情報取得可能なしりとりに表示位置を合わせる
             var selection = vm.selection
-            while (shiritoriWords[selection].lat < 0) && (vm.selection > 0){
+            while (shiritoriWords[selection].lat < -90 || shiritoriWords[selection].long < -180) && (vm.selection > 0){
                 selection -= 1
             }
             let word = shiritoriWords[selection]

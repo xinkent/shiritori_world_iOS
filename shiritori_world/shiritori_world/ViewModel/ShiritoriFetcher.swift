@@ -75,8 +75,9 @@ class ShiritoriFetcher: ObservableObject{
             let shiritoriWords = shiritoriWordList.map{self.getShiriotoriWordData(shiritoriWord:$0)}
             let month = data["month"] as! String
             let shiritori_id = data["shiritori_id"] as! String
+            let totalDistance = Int(data["total_distance_km"] as? Double ?? 0)
                 
-            self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords)
+            self.shiritori = Shiritori(shiritoriID: shiritori_id, month: month, shiritoriWords: shiritoriWords, totalDistanceKM: totalDistance)
             
             // それぞれのshirotoriWordに対し、非同期で住所情報を取得
             for i in 0..<shiritoriWords.count{
