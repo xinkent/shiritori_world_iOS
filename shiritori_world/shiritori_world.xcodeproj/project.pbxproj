@@ -38,6 +38,7 @@
 		226399462455B743000E835C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		226399492455B743000E835C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2263994B2455B743000E835C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22703EEA254D2691004BFB9E /* shiritori_world.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = shiritori_world.entitlements; sourceTree = "<group>"; };
 		2289B97E2507BFC60005D5AE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopView.swift; sourceTree = "<group>"; };
 		22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListView.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		2263993C2455B741000E835C /* shiritori_world */ = {
 			isa = PBXGroup;
 			children = (
+				22703EEA254D2691004BFB9E /* shiritori_world.entitlements */,
 				2263993D2455B741000E835C /* AppDelegate.swift */,
 				2263993F2455B741000E835C /* SceneDelegate.swift */,
 				226399432455B743000E835C /* Assets.xcassets */,
@@ -417,7 +419,10 @@
 			baseConfigurationReference = D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
@@ -427,8 +432,9 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xinkent.shiritori-world";
+				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -439,7 +445,10 @@
 			baseConfigurationReference = 0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
@@ -448,8 +457,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xinkent.shiritori-world";
+				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
