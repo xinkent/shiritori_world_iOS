@@ -81,6 +81,10 @@ class ShiritoriTopViewModel: ObservableObject {
         word.toHiragana().hasSuffix("ん")
     }
     
+    func isEndHiphen(word:String) -> Bool{
+        word.toHiragana().hasSuffix("ー")
+    }
+    
     func validate(currentWord:String, prevWord:String, name:String) -> (isValid:Bool, message:String){
         if self.isBlank(word: currentWord){
             return (false, "")
@@ -90,7 +94,9 @@ class ShiritoriTopViewModel: ObservableObject {
             return (false, "入力はひらがな・カタカナにしてください")
         } else if !self.isSequentialWord(currentWord:currentWord, prevWord:prevWord){
             return (false, "しりとりしてください")
-        } else if self.isEndN(word: currentWord){
+        } else if self.isEndHiphen(word: currentWord){
+            return (false, "-で終わらないでください")
+        }else if self.isEndN(word: currentWord){
             return (false, "しりとりを終わらせないでください")
         } else if self.isBlank(word: name){
             return (false, "回答者名を入力してください")
