@@ -98,10 +98,13 @@ struct MapView:UIViewRepresentable{
             }
             let word = shiritoriWords[selection]
             let centerCoord =  CLLocationCoordinate2D(latitude:word.lat, longitude: word.long)
-            let span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
+            var span = uiView.region.span
+            // 初期表示だけ、デフォルトのspanを設定
+            if selection == 0{
+                span = MKCoordinateSpan(latitudeDelta:1.0, longitudeDelta:1.0)
+            }
             let region = MKCoordinateRegion(center:centerCoord, span:span)
             uiView.setRegion(region, animated:true)
-            
         }
     }
     
