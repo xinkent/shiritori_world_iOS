@@ -69,7 +69,7 @@ struct SettingView: View {
                     Spacer().frame(width: 15)
                         }
                 }
-            }.navigationBarTitle("オプション", displayMode: .inline)
+            }.navigationBarTitle("設定", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
