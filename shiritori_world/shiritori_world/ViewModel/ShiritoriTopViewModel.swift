@@ -14,6 +14,7 @@ class ShiritoriTopViewModel: ObservableObject {
     @Published var id: UUID = UUID()
     let defaultLon = -999.0
     let defaultLat = -999.0
+    let collection_name = "shiritori"
     
     let db = Firestore.firestore()
     func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){
@@ -34,7 +35,7 @@ class ShiritoriTopViewModel: ObservableObject {
             )
         )
         // TODO: monthの自動取得
-        db.collection("shiritori_test").document(sf.user.currentShiritoriID!).setData(
+        db.collection(self.collection_name).document(sf.user.currentShiritoriID!).setData(
             [
                 "month":"202006",
                 "shiritori_id":sf.user.currentShiritoriID!,
