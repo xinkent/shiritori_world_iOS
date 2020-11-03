@@ -6,23 +6,30 @@ struct ShiritoriTopView: View{
     @ObservedObject var vm:ShiritoriTopViewModel
     @State var name = UserDefaults.standard.value(forKey: "username") as? String ?? "名無しさん"
     @State var word = ""
+    init(vm: ShiritoriTopViewModel) {
+        self.vm = vm
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Thonburi-Bold", size: 20)!]
+    }
     
     var body: some View{
-        VStack{
-            ZStack{
-                Color.orange.opacity(0.8).frame(height:65)
-                VStack{
-                    Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です").frame(height:30)
+        
+        NavigationView{
+            VStack{
+                ZStack{
+                    Color.orange.opacity(0.8).frame(height:65)
+                    VStack{
+                        Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です").frame(height:30)
+                    }
                 }
-            }
-            // Spacer().frame(height:20)
-            // Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
-            
-            currentShiritoriView().frame(height:130)
-            Divider()
-            ShiritoriAnswerView(vm:vm, name:self.$name, word:self.$word)
-            Spacer().frame(maxWidth:.infinity)
-            topAlertView(vm:vm, name:self.$name, word:self.$word)
+                // Spacer().frame(height:20)
+                // Text("あなたは" + String((sf.shiritori.shiritoriWords?.count ?? 1) + 1) + "番目の回答者です")
+                
+                currentShiritoriView().frame(height:130)
+                Divider()
+                ShiritoriAnswerView(vm:vm, name:self.$name, word:self.$word)
+                Spacer().frame(maxWidth:.infinity)
+                topAlertView(vm:vm, name:self.$name, word:self.$word)
+            }.navigationBarTitle("しりとり回答", displayMode: .inline)
         }
     }
 }
@@ -120,8 +127,7 @@ struct ShiritoriAnswerView:View{
             ){
                 Text("送信").bold()
             }.disabled(!self.vm.validate(currentWord:self.word, prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""), name:self.name).isValid)
-        }
-        .frame(maxWidth:.infinity)
+        }.frame(maxWidth:.infinity)
 //            .frame(height:300)
     }
     

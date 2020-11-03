@@ -4,23 +4,29 @@ import MapKit
 struct MapFrontView: View{
     @ObservedObject var vm:ShiritoriTopViewModel
     @EnvironmentObject var sf:ShiritoriFetcher
+    init(vm: ShiritoriTopViewModel) {
+        self.vm = vm
+        UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Thonburi-Bold", size: 20)!]
+    }
     var body: some View{
-        VStack{
-            Spacer().font(.headline).frame(height:20)
-            // タイトル
-            HStack{
-                Text("移動総距離")
-                Text("\(sf.shiritori.totalDistanceKM!)")
-                    .font(.title)
-                    .fontWeight(.bold)
-                Text("Km")
-            }
-            Spacer().frame(maxHeight:40)
-            Text("これまでのしりとり")
-            // しりとり選択画面
-            SelectShiritoriView(vm:vm)
-            // 地図画面
-            MapView(vm:vm)
+        NavigationView{
+            VStack{
+                Spacer().font(.headline).frame(height:20)
+                // タイトル
+                HStack{
+                    Text("移動総距離")
+                    Text("\(sf.shiritori.totalDistanceKM!)")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("Km")
+                }
+                Spacer().frame(maxHeight:40)
+                Text("これまでのしりとり")
+                // しりとり選択画面
+                SelectShiritoriView(vm:vm)
+                // 地図画面
+                MapView(vm:vm)
+            }.navigationBarTitle("しりとりマップ", displayMode: .inline)
         }
     }
 }

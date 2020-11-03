@@ -18,10 +18,17 @@ struct ContentView: View {
             }
             // しりとり履歴画面
             ShiritoriListView()
-            .tabItem{
-                Image(systemName:"list.bullet")
-                Text("しりとり履歴")
-            }
+                .tabItem{
+                    Image(systemName:"list.bullet")
+                    Text("しりとり履歴")
+                }
+            
+            // 設定画面
+            SettingView()
+                .tabItem{
+                    Image(systemName:"ellipsis")
+                    Text("設定")
+                }
         }
         .onAppear(perform:{
             self.sf.fetchUserShiritori()
