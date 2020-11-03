@@ -14,6 +14,23 @@
 		226399442455B743000E835C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399432455B743000E835C /* Assets.xcassets */; };
 		226399472455B743000E835C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399462455B743000E835C /* Preview Assets.xcassets */; };
 		2263994A2455B743000E835C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226399482455B743000E835C /* LaunchScreen.storyboard */; };
+		22703F1D25515009004BFB9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993D2455B741000E835C /* AppDelegate.swift */; };
+		22703F1E25515009004BFB9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263993F2455B741000E835C /* SceneDelegate.swift */; };
+		22703F1F25515009004BFB9E /* ShiritoriTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */; };
+		22703F2025515009004BFB9E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289B97E2507BFC60005D5AE /* LocationManager.swift */; };
+		22703F2125515009004BFB9E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB337247A3CB200C1F7B3 /* ContentView.swift */; };
+		22703F2225515009004BFB9E /* ShiritoriTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */; };
+		22703F2325515009004BFB9E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84865248A4F7800A6FD98 /* DataModel.swift */; };
+		22703F2425515009004BFB9E /* ShiritoriListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C84863248A4CC300A6FD98 /* ShiritoriListViewModel.swift */; };
+		22703F2525515009004BFB9E /* ShiritoriFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800E246FA6ED006BC8F4 /* ShiritoriFetcher.swift */; };
+		22703F2625515009004BFB9E /* ShiritoriListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */; };
+		22703F2725515009004BFB9E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226399412455B741000E835C /* MapView.swift */; };
+		22703F2825515009004BFB9E /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2249E9B22517431F005A22F9 /* CustomTextFieldView.swift */; };
+		22703F2A25515009004BFB9E /* Pods_shiritori_world.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */; };
+		22703F2C25515009004BFB9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226399482455B743000E835C /* LaunchScreen.storyboard */; };
+		22703F2E25515009004BFB9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399462455B743000E835C /* Preview Assets.xcassets */; };
+		22703F2F25515009004BFB9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 226399432455B743000E835C /* Assets.xcassets */; };
+		22703F4A255154B1004BFB9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22703F442551536F004BFB9E /* GoogleService-Info.plist */; };
 		2289B97F2507BFC60005D5AE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289B97E2507BFC60005D5AE /* LocationManager.swift */; };
 		22A9800A246FA4FC006BC8F4 /* ShiritoriTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */; };
 		22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */; };
@@ -30,7 +47,7 @@
 		0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiritori_world.release.xcconfig"; path = "Target Support Files/Pods-shiritori_world/Pods-shiritori_world.release.xcconfig"; sourceTree = "<group>"; };
 		07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiritori_world.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2249E9B22517431F005A22F9 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTextFieldView.swift; path = shiritori_world/View/CustomTextFieldView.swift; sourceTree = SOURCE_ROOT; };
-		2263993A2455B741000E835C /* shiritori_world.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2263993A2455B741000E835C /* shiritori_world_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263993D2455B741000E835C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263993F2455B741000E835C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		226399412455B741000E835C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -39,6 +56,8 @@
 		226399492455B743000E835C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2263994B2455B743000E835C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22703EEA254D2691004BFB9E /* shiritori_world.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = shiritori_world.entitlements; sourceTree = "<group>"; };
+		22703F3425515009004BFB9E /* shiritori_world_product.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiritori_world_product.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22703F442551536F004BFB9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2289B97E2507BFC60005D5AE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		22A98009246FA4FC006BC8F4 /* ShiritoriTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriTopView.swift; sourceTree = "<group>"; };
 		22A9800B246FA578006BC8F4 /* ShiritoriListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiritoriListView.swift; sourceTree = "<group>"; };
@@ -60,6 +79,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22703F2925515009004BFB9E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22703F2A25515009004BFB9E /* Pods_shiritori_world.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -76,7 +103,8 @@
 		2263993B2455B741000E835C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2263993A2455B741000E835C /* shiritori_world.app */,
+				2263993A2455B741000E835C /* shiritori_world_test.app */,
+				22703F3425515009004BFB9E /* shiritori_world_product.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,13 +112,14 @@
 		2263993C2455B741000E835C /* shiritori_world */ = {
 			isa = PBXGroup;
 			children = (
+				2263994B2455B743000E835C /* Info.plist */,
+				22703F3B25515258004BFB9E /* GoogleService-info-PRODUCT */,
+				22703F3A25515241004BFB9E /* GoogleService-info-TEST */,
 				22703EEA254D2691004BFB9E /* shiritori_world.entitlements */,
 				2263993D2455B741000E835C /* AppDelegate.swift */,
 				2263993F2455B741000E835C /* SceneDelegate.swift */,
 				226399432455B743000E835C /* Assets.xcassets */,
 				226399482455B743000E835C /* LaunchScreen.storyboard */,
-				2263994B2455B743000E835C /* Info.plist */,
-				D60BA1B924AF88B20057F83A /* GoogleService-Info.plist */,
 				22FEB336247A3C9900C1F7B3 /* ViewModel */,
 				226399512455B9AC000E835C /* View */,
 				22A9800D246FA68A006BC8F4 /* Model */,
@@ -117,6 +146,22 @@
 				22FEB337247A3CB200C1F7B3 /* ContentView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		22703F3A25515241004BFB9E /* GoogleService-info-TEST */ = {
+			isa = PBXGroup;
+			children = (
+				D60BA1B924AF88B20057F83A /* GoogleService-Info.plist */,
+			);
+			path = "GoogleService-info-TEST";
+			sourceTree = "<group>";
+		};
+		22703F3B25515258004BFB9E /* GoogleService-info-PRODUCT */ = {
+			isa = PBXGroup;
+			children = (
+				22703F442551536F004BFB9E /* GoogleService-Info.plist */,
+			);
+			path = "GoogleService-info-PRODUCT";
 			sourceTree = "<group>";
 		};
 		22A9800D246FA68A006BC8F4 /* Model */ = {
@@ -158,9 +203,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		226399392455B741000E835C /* shiritori_world */ = {
+		226399392455B741000E835C /* shiritori_world_test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2263994E2455B743000E835C /* Build configuration list for PBXNativeTarget "shiritori_world" */;
+			buildConfigurationList = 2263994E2455B743000E835C /* Build configuration list for PBXNativeTarget "shiritori_world_test" */;
 			buildPhases = (
 				DE19A0252A846B8E442EC9B2 /* [CP] Check Pods Manifest.lock */,
 				226399362455B741000E835C /* Sources */,
@@ -172,9 +217,28 @@
 			);
 			dependencies = (
 			);
-			name = shiritori_world;
+			name = shiritori_world_test;
 			productName = shiritori_world;
-			productReference = 2263993A2455B741000E835C /* shiritori_world.app */;
+			productReference = 2263993A2455B741000E835C /* shiritori_world_test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22703F1A25515009004BFB9E /* shiritori_world_product */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22703F3125515009004BFB9E /* Build configuration list for PBXNativeTarget "shiritori_world_product" */;
+			buildPhases = (
+				22703F1B25515009004BFB9E /* [CP] Check Pods Manifest.lock */,
+				22703F1C25515009004BFB9E /* Sources */,
+				22703F2925515009004BFB9E /* Frameworks */,
+				22703F2B25515009004BFB9E /* Resources */,
+				22703F3025515009004BFB9E /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = shiritori_world_product;
+			productName = shiritori_world;
+			productReference = 22703F3425515009004BFB9E /* shiritori_world_product.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +269,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				226399392455B741000E835C /* shiritori_world */,
+				226399392455B741000E835C /* shiritori_world_test */,
+				22703F1A25515009004BFB9E /* shiritori_world_product */,
 			);
 		};
 /* End PBXProject section */
@@ -222,9 +287,59 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22703F2B25515009004BFB9E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22703F2C25515009004BFB9E /* LaunchScreen.storyboard in Resources */,
+				22703F4A255154B1004BFB9E /* GoogleService-Info.plist in Resources */,
+				22703F2E25515009004BFB9E /* Preview Assets.xcassets in Resources */,
+				22703F2F25515009004BFB9E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22703F1B25515009004BFB9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-shiritori_world-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22703F3025515009004BFB9E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shiritori_world/Pods-shiritori_world-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		847928FC49AFF0CC69F2920B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -283,6 +398,25 @@
 				22A9800C246FA578006BC8F4 /* ShiritoriListView.swift in Sources */,
 				226399422455B741000E835C /* MapView.swift in Sources */,
 				2249E9B32517431F005A22F9 /* CustomTextFieldView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22703F1C25515009004BFB9E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22703F1D25515009004BFB9E /* AppDelegate.swift in Sources */,
+				22703F1E25515009004BFB9E /* SceneDelegate.swift in Sources */,
+				22703F1F25515009004BFB9E /* ShiritoriTopViewModel.swift in Sources */,
+				22703F2025515009004BFB9E /* LocationManager.swift in Sources */,
+				22703F2125515009004BFB9E /* ContentView.swift in Sources */,
+				22703F2225515009004BFB9E /* ShiritoriTopView.swift in Sources */,
+				22703F2325515009004BFB9E /* DataModel.swift in Sources */,
+				22703F2425515009004BFB9E /* ShiritoriListViewModel.swift in Sources */,
+				22703F2525515009004BFB9E /* ShiritoriFetcher.swift in Sources */,
+				22703F2625515009004BFB9E /* ShiritoriListView.swift in Sources */,
+				22703F2725515009004BFB9E /* MapView.swift in Sources */,
+				22703F2825515009004BFB9E /* CustomTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +599,57 @@
 			};
 			name = Release;
 		};
+		22703F3225515009004BFB9E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E9DD11353F680D943E2F75 /* Pods-shiritori_world.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
+				DEVELOPMENT_TEAM = 2L366MW7UT;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = shiritori_world/info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OTHER_SWIFT_FLAGS = "-D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22703F3325515009004BFB9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0070BDD1CC34D3DECF1E3691 /* Pods-shiritori_world.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
+				DEVELOPMENT_TEAM = 2L366MW7UT;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = shiritori_world/info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -477,11 +662,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2263994E2455B743000E835C /* Build configuration list for PBXNativeTarget "shiritori_world" */ = {
+		2263994E2455B743000E835C /* Build configuration list for PBXNativeTarget "shiritori_world_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2263994F2455B743000E835C /* Debug */,
 				226399502455B743000E835C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22703F3125515009004BFB9E /* Build configuration list for PBXNativeTarget "shiritori_world_product" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22703F3225515009004BFB9E /* Debug */,
+				22703F3325515009004BFB9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
