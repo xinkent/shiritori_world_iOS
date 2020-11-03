@@ -6,6 +6,7 @@ class ShiritoriFetcher: ObservableObject{
     @Published var shiritori = Shiritori()
     @Published var user = User()
     let db = Firestore.firestore()
+    let collection_name = "shiritori"
     
     
     func fetchUserShiritori(){
@@ -56,7 +57,7 @@ class ShiritoriFetcher: ObservableObject{
     
     func fetchShiritori(){
         // shiritoriオブジェクトをFetchする
-        self.db.collection("shiritori_test").document(self.user.currentShiritoriID!)
+        self.db.collection(self.collection_name).document(self.user.currentShiritoriID!)
             .addSnapshotListener { documentSnapshot, error in
         
             // 読み込みエラーもしくは、ドキュメントが存在しない場合処理を中断

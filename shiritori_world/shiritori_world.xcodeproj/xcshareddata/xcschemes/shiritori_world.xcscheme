@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "226399392455B741000E835C"
-               BuildableName = "shiritori_world.app"
-               BlueprintName = "shiritori_world"
+               BuildableName = "shiritori_world_test.app"
+               BlueprintName = "shiritori_world_test"
                ReferencedContainer = "container:shiritori_world.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "226399392455B741000E835C"
-            BuildableName = "shiritori_world.app"
-            BlueprintName = "shiritori_world"
+            BuildableName = "shiritori_world_test.app"
+            BlueprintName = "shiritori_world_test"
             ReferencedContainer = "container:shiritori_world.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "226399392455B741000E835C"
-            BuildableName = "shiritori_world.app"
-            BlueprintName = "shiritori_world"
+            BuildableName = "shiritori_world_test.app"
+            BlueprintName = "shiritori_world_test"
             ReferencedContainer = "container:shiritori_world.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

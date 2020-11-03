@@ -23,7 +23,7 @@ struct SettingView: View {
                             Spacer().frame(width: 15)
                         }
                         .sheet(isPresented: $showModal){
-                            SafariView(url: URL(string: "https://forms.gle/6LTFotZQRDXib5Y8A")!)
+                            SafariView(url: URL(string: "https://forms.gle/j3tXg9xp9iDCzMf96")!)
                         }
                     }
                 }
