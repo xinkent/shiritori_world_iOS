@@ -27,7 +27,7 @@ struct MapFrontView: View{
                 // 地図画面
                 MapView(vm:vm)
             }.navigationBarTitle("しりとりマップ", displayMode: .inline)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

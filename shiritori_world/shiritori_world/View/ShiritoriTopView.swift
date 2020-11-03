@@ -30,7 +30,7 @@ struct ShiritoriTopView: View{
                 Spacer().frame(maxWidth:.infinity)
                 topAlertView(vm:vm, name:self.$name, word:self.$word)
             }.navigationBarTitle("しりとり回答", displayMode: .inline)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
