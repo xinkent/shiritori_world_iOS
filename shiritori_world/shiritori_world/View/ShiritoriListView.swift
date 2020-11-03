@@ -27,7 +27,7 @@ struct ShiritoriListView: View {
                 .padding()
                 }
             }.navigationBarTitle("しりとり履歴", displayMode: .inline)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
