@@ -1,4 +1,5 @@
 import SwiftUI
+import KeyboardObserving
 
 struct ShiritoriTopView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
@@ -27,6 +28,7 @@ struct ShiritoriTopView: View{
                 currentShiritoriView().frame(height:130)
                 Divider()
                 ShiritoriAnswerView(vm:vm, name:self.$name, word:self.$word)
+                .keyboardObserving()
                 Spacer().frame(maxWidth:.infinity)
                 topAlertView(vm:vm, name:self.$name, word:self.$word)
             }.navigationBarTitle("しりとり回答", displayMode: .inline)

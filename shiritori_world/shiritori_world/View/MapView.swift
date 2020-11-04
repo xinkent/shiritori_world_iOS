@@ -20,8 +20,8 @@ struct MapFrontView: View{
                         .fontWeight(.bold)
                     Text("Km")
                 }
-                Spacer().frame(maxHeight:40)
-                Text("これまでのしりとり")
+                // Spacer().frame(maxHeight:40)
+                // Text("これまでのしりとり")
                 // しりとり選択画面
                 SelectShiritoriView(vm:vm)
                 // 地図画面

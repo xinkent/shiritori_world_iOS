@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,7 @@
 		22F4E689255169CC00B229A2 /* EULA.html in Resources */ = {isa = PBXBuildFile; fileRef = 22F4E686255169CC00B229A2 /* EULA.html */; };
 		22F4E68A255169CC00B229A2 /* EULA.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22F4E687255169CC00B229A2 /* EULA.txt */; };
 		22F4E68B255169CC00B229A2 /* EULA.txt in Resources */ = {isa = PBXBuildFile; fileRef = 22F4E687255169CC00B229A2 /* EULA.txt */; };
+		22F4E69C2552F8B300B229A2 /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 22F4E69B2552F8B300B229A2 /* KeyboardObserving */; };
 		22FEB338247A3CB200C1F7B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB337247A3CB200C1F7B3 /* ContentView.swift */; };
 		22FEB33A247A401A00C1F7B3 /* ShiritoriTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FEB339247A401A00C1F7B3 /* ShiritoriTopViewModel.swift */; };
 		52ED3B743C0CE8BAF870D28E /* Pods_shiritori_world.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07048F8CDCD229471D28C576 /* Pods_shiritori_world.framework */; };
@@ -93,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22703F2A25515009004BFB9E /* Pods_shiritori_world.framework in Frameworks */,
+				22F4E69C2552F8B300B229A2 /* KeyboardObserving in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +259,9 @@
 			dependencies = (
 			);
 			name = shiritori_world_product;
+			packageProductDependencies = (
+				22F4E69B2552F8B300B229A2 /* KeyboardObserving */,
+			);
 			productName = shiritori_world;
 			productReference = 22703F3425515009004BFB9E /* shiritori_world_product.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 226399312455B741000E835C;
+			packageReferences = (
+				22F4E69A2552F8B300B229A2 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
+			);
 			productRefGroup = 2263993B2455B741000E835C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -633,7 +641,7 @@
 				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
@@ -659,7 +667,7 @@
 				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
@@ -707,6 +715,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		22F4E69A2552F8B300B229A2 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nickffox/KeyboardObserving";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		22F4E69B2552F8B300B229A2 /* KeyboardObserving */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22F4E69A2552F8B300B229A2 /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
+			productName = KeyboardObserving;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 226399322455B741000E835C /* Project object */;
 }
