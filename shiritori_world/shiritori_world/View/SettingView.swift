@@ -65,7 +65,7 @@ struct SettingView: View {
                     Image(systemName:"gear")
                         .foregroundColor(.black)
                     Spacer()
-                    Text("ver 1.0.4")
+                    Text("ver 1.0.5")
                     Spacer().frame(width: 15)
                         }
                 }

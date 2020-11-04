@@ -633,7 +633,7 @@
 				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
@@ -659,7 +659,7 @@
 				CODE_SIGN_ENTITLEMENTS = shiritori_world/shiritori_world.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"shiritori_world/Preview Content\"";
 				DEVELOPMENT_TEAM = 2L366MW7UT;
 				ENABLE_PREVIEWS = YES;
