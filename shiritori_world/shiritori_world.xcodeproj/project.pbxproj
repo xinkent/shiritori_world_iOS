@@ -600,7 +600,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xinkent.shiritori-world";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
 				SWIFT_VERSION = 5.0;
@@ -625,7 +625,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "xinkent.shiritori-world";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xinkent.shiritori-world";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ShiritoriWorldPushDistributionProfile;
 				SWIFT_VERSION = 5.0;
