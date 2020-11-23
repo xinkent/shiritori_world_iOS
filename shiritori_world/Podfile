@@ -1,7 +1,7 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.4'
 
-target 'shiritori_world' do
+def install_pods
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
@@ -13,4 +13,13 @@ target 'shiritori_world' do
    pod 'Firebase/Storage', '6.14.0'
    pod 'Firebase/Analytics', '6.14.0'
    pod 'FBSDKLoginKit', '5.13.1'
+   pod 'KeyboardObserving', '0.3.0'	
+end
+
+target 'shiritori_world_test' do
+  install_pods
+end
+
+target 'shiritori_world_product' do
+  install_pods
 end
