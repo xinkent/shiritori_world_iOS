@@ -6,6 +6,8 @@ class ShiritoriFetcher: ObservableObject{
     @Published var shiritori = Shiritori()
     @Published var user = User()
     let db = Firestore.firestore()
+    lazy var functions = Functions.functions()
+    
     let collection_name = "shiritori"
     
     
@@ -149,7 +151,18 @@ class ShiritoriFetcher: ObservableObject{
             answerDate: answerDate
         )
     }
-    
+
+    func updateShiritoriFlag(order:Int, flag_name:String, flag_value:Bool){
+        print("call updateShiritoriUpdate")
+        let data = ["doc_id":self.user.currentShiritoriID!, "shiritori_order":order, "flag_name":flag_name, "flag_value":flag_value] as [String : Any]
+        self.functions.httpsCallable("updateFlag").call(data){(result, error) in
+            if error != nil{
+                print("udpate shiritori failed:\(String(describing: error))")
+            } else {
+                print("update shiritori succeeded")
+            }
+        }
+    }
 }
 
 struct ShiritoriFetcher_Previews: PreviewProvider {
