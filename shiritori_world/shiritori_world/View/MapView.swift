@@ -86,8 +86,8 @@ struct MapView:UIViewRepresentable{
             
             for i in 0...vm.selection{
                 let word = shiritoriWords[i]
-                // 位置情報み取得のしりとりは表示しない
-                if word.lat < 0{
+                // 位置情報マスクがかけられているものは非表示
+                if word.is_location_masked || word.is_reported{
                     continue
                 }
                 let annotation = CustomPointAnnotation()

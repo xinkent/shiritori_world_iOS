@@ -100,7 +100,7 @@ class ShiritoriFetcher: ObservableObject{
     
     typealias CompletionClosure = ((_ result:String) -> Void)
     func getAddress(location:CLLocation, completionClosure:@escaping CompletionClosure){
-        // MapKitの逆ジオコーディングにより緯度経度から住所を取得すし、完了後にCompletionクロージャを実行する。
+        // MapKitの逆ジオコーディングにより緯度経度から住所を取得し、完了後にCompletionクロージャを実行する。
     
         CLGeocoder().reverseGeocodeLocation(location){ placemarks, error in
             guard
@@ -141,6 +141,10 @@ class ShiritoriFetcher: ObservableObject{
         let name = shiritoriWord["name"] as? String
         let word = shiritoriWord["word"] as? String
         let answerDate = (shiritoriWord["answer_date"] as! Timestamp).dateValue()
+        let is_location_masked = shiritoriWord["is_location_masked"] as? Bool ?? false
+        let is_word_masked = shiritoriWord["is_word_masked"] as? Bool ?? false
+        let is_name_masked = shiritoriWord["is_name_masked"] as? Bool ?? false
+        let is_reported = shiritoriWord["is_reported"] as? Bool ?? false
         return ShiritoriWord(
             id:id!,
             userID:userID!,
@@ -148,7 +152,11 @@ class ShiritoriFetcher: ObservableObject{
             word:word!,
             lat:lat!,
             long:long!,
-            answerDate: answerDate
+            answerDate: answerDate,
+            is_location_masked: is_location_masked,
+            is_word_masked: is_word_masked,
+            is_name_masked: is_name_masked,
+            is_reported: is_reported
         )
     }
 

@@ -32,6 +32,7 @@ class ShiritoriTopViewModel: ObservableObject {
                 lat:latitude,
                 long:longitude,
                 answerDate: Date()
+                
             )
         )
         // TODO: monthの自動取得
