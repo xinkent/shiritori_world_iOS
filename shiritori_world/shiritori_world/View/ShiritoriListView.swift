@@ -68,7 +68,7 @@ struct ShiritoriListRows: View{
                         .font(.body)
                         .padding()
                         Text("変更").onTapGesture {
-                            vm.beforeSend(order:shiritoriWord.id, flag_name: "is_location_masked", flag_value:true)
+                            vm.beforeSend(order:shiritoriWord.id)
                         }
                     }
 //                }
