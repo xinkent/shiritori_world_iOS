@@ -45,21 +45,21 @@ struct ShiritoriWord:Identifiable{
     var is_reported: Bool = false
     var masked_address: String?{
         if(is_location_masked || is_reported){
-            return "xxxxx"
+            return "【非公開】"
         }else{
             return address
         }
     }
     var masked_name: String?{
         if(is_name_masked || is_reported){
-            return "xxxxx"
+            return "【非公開】"
         }else{
             return name
         }
     }
     var masked_word: String{
         if(is_word_masked || is_reported){
-            return "xxxxx"
+            return "【非公開】"
         }else{
             return word
         }

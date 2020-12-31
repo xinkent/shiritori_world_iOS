@@ -60,7 +60,7 @@ struct SelectShiritoriView: View{
             // しりとり選択Picker
             Picker(selection: $vm.selection, label:Text("しりとり選択")) {
                 ForEach(0 ..< self.sf.shiritori.shiritoriWords!.count) {  num in
-                    Text("\(self.sf.shiritori.shiritoriWords![num].id).　\(self.sf.shiritori.shiritoriWords![num].word)")
+                    Text("\(self.sf.shiritori.shiritoriWords![num].id).　\(self.sf.shiritori.shiritoriWords![num].masked_word)")
                 }
             }.id(vm.id) // 解答追加時に選択肢が更新されるようにする
         }
