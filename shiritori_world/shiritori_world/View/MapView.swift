@@ -60,7 +60,7 @@ struct SelectShiritoriView: View{
             // しりとり選択Picker
             Picker(selection: $vm.selection, label:Text("しりとり選択")) {
                 ForEach(0 ..< self.sf.shiritori.shiritoriWords!.count) {  num in
-                    Text("\(self.sf.shiritori.shiritoriWords![num].id).　\(self.sf.shiritori.shiritoriWords![num].word)")
+                    Text("\(self.sf.shiritori.shiritoriWords![num].id).　\(self.sf.shiritori.shiritoriWords![num].masked_word)")
                 }
             }.id(vm.id) // 解答追加時に選択肢が更新されるようにする
         }
@@ -86,8 +86,8 @@ struct MapView:UIViewRepresentable{
             
             for i in 0...vm.selection{
                 let word = shiritoriWords[i]
-                // 位置情報み取得のしりとりは表示しない
-                if word.lat < 0{
+                // 位置情報マスクがかけられているものは非表示
+                if word.is_location_masked || word.is_reported{
                     continue
                 }
                 let annotation = CustomPointAnnotation()

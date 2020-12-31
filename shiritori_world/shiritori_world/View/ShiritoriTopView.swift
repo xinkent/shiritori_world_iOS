@@ -92,11 +92,19 @@ struct currentShiritoriView:View{
                 //.background(Color.gray)
                 //.foregroundColor(Color.white)
             HStack{
-                Text(String((self.sf.shiritori.shiritoriWords?.last!.name) ?? "-----"))
+                Text(String((self.sf.shiritori.shiritoriWords?.last!.masked_name) ?? "-----"))
                     .font(.caption)
-                Text(String((self.sf.shiritori.shiritoriWords?.last!.word) ?? "-----"))
+                Text(String((self.sf.shiritori.shiritoriWords?.last!.masked_word) ?? "-----"))
                     .font(.title)
             }
+            Spacer().frame(height:20)
+            HStack{
+                Text("次の頭文字")
+                    .font(.headline)
+                Spacer()
+            }
+            Text(String((self.sf.shiritori.shiritoriWords?.last!.word.suffix(1)) ?? ""))
+                .font(.title)
         }
     }
 }
@@ -130,14 +138,5 @@ struct ShiritoriAnswerView:View{
                 Text("送信").bold()
             }.disabled(!self.vm.validate(currentWord:self.word, prevWord: String((self.sf.shiritori.shiritoriWords?.last!.word) ?? ""), name:self.name).isValid)
         }.frame(maxWidth:.infinity)
-//            .frame(height:300)
     }
-    
 }
-
-
-//struct ShiritoriTopView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        ShiritoriTopView().environmentObject(ShiritoriFetcher())
-//    }
-//}
