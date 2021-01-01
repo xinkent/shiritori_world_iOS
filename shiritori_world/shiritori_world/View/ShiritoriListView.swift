@@ -59,15 +59,11 @@ struct ShiritoriListRows: View{
                             Group{
                                 if shiritoriWord.is_location_masked{
                                     Image(systemName:"lock.fill")
-                                        .onTapGesture {
-                                            vm.beforeSend(order: shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
-                                        }
                                 } else {
                                     Image(systemName:"lock.open.fill")
-                                        .onTapGesture {
-                                        vm.beforeSend(order:shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
-                                        }
                                 }
+                            }.onTapGesture {
+                                vm.beforeSend(order: shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
                             }
                         }
                             Text("回答者:\(shiritoriWord.name ?? "取得中...")")
