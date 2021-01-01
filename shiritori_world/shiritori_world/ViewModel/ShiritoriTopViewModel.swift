@@ -6,6 +6,7 @@ class ShiritoriTopViewModel: ObservableObject {
     @Published var beforeSent: Bool = false
     @Published var isSent: Bool = false
     @Published var isError:Bool = false
+    @Published var allowLocation: Bool = true
     @Published var selection: Int = 0 {
         willSet { // selectionが変更された時、選択肢そのものが更新されるようにする
             id = UUID()
@@ -31,8 +32,8 @@ class ShiritoriTopViewModel: ObservableObject {
                 word:word,
                 lat:latitude,
                 long:longitude,
-                answerDate: Date()
-                
+                answerDate: Date(),
+                is_location_masked:!self.allowLocation
             )
         )
         // TODO: monthの自動取得

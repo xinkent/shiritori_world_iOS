@@ -46,8 +46,8 @@ struct topAlertView: View{
         VStack{
             Spacer().alert(isPresented:$vm.beforeSent){
                 Alert(
-                    title: Text("Message"),
-                    message: Text("送信しますか？"),
+                    title: Text("回答を送信"),
+                    message: Text(vm.allowLocation ? "位置情報と合わせて送信されます": "しりとりを送信しますか？"),
                     primaryButton:.default(Text("Yes"),
                         action:{
                             self.vm.send_answer(sf: sf, lm: lm, name: name, word: word)
@@ -57,7 +57,7 @@ struct topAlertView: View{
                 )
             }
             Spacer().alert(isPresented: $vm.isSent) {
-                Alert(title: Text("Message"),
+                Alert(title: Text("送信成功"),
                       message: Text("回答が送信されました！"),
                       dismissButton: .default(Text("OK"),
                           action:{
@@ -68,7 +68,7 @@ struct topAlertView: View{
                 )
             }
             Spacer().alert(isPresented: $vm.isError) {
-                Alert(title: Text("Message"),
+                Alert(title: Text("送信失敗"),
                       message: Text("送信できませんでした"),
                       dismissButton: .default(Text("OK")
                     )
@@ -130,6 +130,12 @@ struct ShiritoriAnswerView:View{
             CustomTextFieldView(title:"回答入力", text: self.$word).border(Color.gray, width:0.5).frame(width:300, height:40)
             if !self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")), name:self.name).isValid{
                 Text(self.vm.validate(currentWord:self.word, prevWord: String(((self.sf.shiritori.shiritoriWords?.last!.word) ?? "")), name:self.name).message)
+            }
+            HStack{
+                Toggle(isOn: $vm.allowLocation){
+                    Text("位置情報も送信する")
+                }.frame(width:250)
+                Spacer()
             }
             Button(action:{
                 self.vm.beforeSend()

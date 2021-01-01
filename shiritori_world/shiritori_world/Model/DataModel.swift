@@ -72,7 +72,10 @@ struct ShiritoriWord:Identifiable{
             "word": self.word,
             "lat": self.lat,
             "long": self.long,
-            "answer_date": self.answerDate
+            "answer_date": self.answerDate,
+            "is_location_masked": self.is_location_masked,
+            "is_name_masked": self.is_name_masked,
+            "is_word_masked": self.is_word_masked
         ]
     }
 }
