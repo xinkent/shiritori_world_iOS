@@ -10,15 +10,27 @@ import SwiftUI
 
 struct FirstView: View {
     @ObservedObject var vm: ContentViewModel
+    @State var readPolicy:Bool = false
     var visit = UserDefaults.standard.bool(forKey: "visit")
     var body: some View {
         VStack{
-            Button(action:{
-                self.vm.accept_policy()
-            }){
-                Text("accept")
+            Text("本アプリを利用するためには、利用規約に同意する必要があります。下記の利用規約を読み、同意ボタンを押してください。")
+            Spacer().frame(height:30)
+            Text("利用規約").font(.title)
+            Divider()
+            EULAView().frame(height:500)
+            Divider()
+            HStack{
+                Toggle(isOn: $readPolicy){
+                    Text("同意します")
+                }.frame(width:150)
+                Spacer()
             }
-            Text("\(self.visit ? "visit is true": "visit is false")")
+            Button(action:{
+                self.vm.acceptPolicy()
+            }){
+                Text("送信")
+            }.disabled(!readPolicy)
         }
     }
 }
