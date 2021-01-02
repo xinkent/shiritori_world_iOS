@@ -7,16 +7,9 @@ class ShiritoriTopViewModel: ObservableObject {
     @Published var isSent: Bool = false
     @Published var isError:Bool = false
     @Published var allowLocation: Bool = true
-    @Published var selection: Int = 0 {
-        willSet { // selectionが変更された時、選択肢そのものが更新されるようにする
-            id = UUID()
-        }
-    }
-    @Published var id: UUID = UUID()
     let defaultLon = -999.0
     let defaultLat = -999.0
     let collection_name = "shiritori"
-    
     let db = Firestore.firestore()
     func send_answer(sf: ShiritoriFetcher, lm: LocationManager, name:String, word:String){
         
@@ -149,4 +142,5 @@ extension String {
     func get_order(sf: ShiritoriFetcher)->Int{
         return (sf.shiritori.shiritoriWords?.count ?? 0  + 1)
     }
+
 }

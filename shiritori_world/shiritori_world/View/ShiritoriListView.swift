@@ -29,11 +29,33 @@ struct ShiritoriListRows: View{
     @Binding var selectedStyle:Int
     var body: some View{
         if (selectedStyle == 0){
-            List(self.sf.shiritori.shiritoriWords!){ shiritoriWord in
-                VStack(alignment: .leading){
-                Text("順番:\(shiritoriWord.id)")
-                .font(.body)
-                .padding(5)
+            ShiritoriListRowsAll(vm: vm)
+        } else if (selectedStyle == 1){
+            ShiritoriListRowsUser(vm: vm)
+        } else {
+            EmptyView()
+        }
+    }
+}
+
+struct ShiritoriListRowsAll: View{
+    @EnvironmentObject var sf:ShiritoriFetcher
+    @ObservedObject var vm: ShiritoriListViewModel
+    var body: some View{
+        List(self.sf.shiritori.shiritoriWords!){ shiritoriWord in
+            VStack(alignment: .leading){
+                HStack{
+                    Text("順番:\(shiritoriWord.id)")
+                    .font(.body)
+                    .padding(5)
+                    Spacer()
+                    Text("通報")
+                        .foregroundColor(Color.blue)
+                        .font(.subheadline)
+                        .onTapGesture {
+                        vm.reportBeforeSend(order: shiritoriWord.id)
+                    }
+                }
                     Text("回答者:\(shiritoriWord.masked_name ?? "取得中...")")
                 .font(.body)
                 .padding(5)
@@ -46,34 +68,37 @@ struct ShiritoriListRows: View{
                 Text("回答日時:\(shiritoriWord.answerDateStr)")
                 .font(.body)
                 .padding(5)
-                }
-            }.navigationBarTitle("しりとり履歴", displayMode: .inline)
-        } else if (selectedStyle == 1){
-            List(self.sf.shiritori.shiritoriWords!.filter{$0.userID == sf.user.userID}){ shiritoriWord in
-                    VStack(alignment: .leading){
-                        HStack{
-                            Text("順番:\(shiritoriWord.id)")
-                            .font(.body)
-                            .padding(5)
-                            Spacer()
-                            Group{
-                                if shiritoriWord.is_location_masked{
-                                    Image(systemName:"lock.fill")
-                                        .onTapGesture {
-                                            vm.beforeSend(order: shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
-                                        }
-                                } else {
-                                    Image(systemName:"lock.open.fill")
-                                        .onTapGesture {
-                                        vm.beforeSend(order:shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
-                                        }
-                                }
-                            }
-                        }
-                            Text("回答者:\(shiritoriWord.name ?? "取得中...")")
+            }
+        }.navigationBarTitle("しりとり履歴", displayMode: .inline)
+    }
+}
+
+struct ShiritoriListRowsUser: View{
+    @EnvironmentObject var sf:ShiritoriFetcher
+    @ObservedObject var vm: ShiritoriListViewModel
+    var body: some View{
+        List(self.sf.shiritori.shiritoriWords!.filter{$0.userID == sf.user.userID}){ shiritoriWord in
+                VStack(alignment: .leading){
+                    HStack{
+                        Text("順番:\(shiritoriWord.id)")
                         .font(.body)
                         .padding(5)
-                            Text("回答場所:\(shiritoriWord.address ?? "???")")
+                        Spacer()
+                        Group{
+                            if shiritoriWord.is_location_masked{
+                                Image(systemName:"lock.fill")
+                            } else {
+                                Image(systemName:"lock.open.fill")
+                            }
+                        }.onTapGesture {
+                            vm.updateBeforeSend(order: shiritoriWord.id, is_masked: shiritoriWord.is_location_masked)
+                        }
+                    }
+                    VStack(alignment: .leading){
+                        Text("回答者:\(shiritoriWord.name ?? "取得中...")")
+                        .font(.body)
+                        .padding(5)
+                        Text("回答場所:\(shiritoriWord.address ?? "???")")
                         .font(.body)
                         .padding(5)
                         Text("回答ワード:\(shiritoriWord.word)")
@@ -83,10 +108,8 @@ struct ShiritoriListRows: View{
                         .font(.body)
                         .padding(5)
                     }
-            }.navigationBarTitle("しりとり履歴", displayMode: .inline)
-        } else {
-            EmptyView()
-        }
+                }
+        }.navigationBarTitle("しりとり履歴", displayMode: .inline)
     }
 }
 
@@ -95,13 +118,25 @@ struct listAlertView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
     
     var body: some View{
-        Spacer().alert(isPresented:$vm.beforeSent){
+        Spacer().alert(isPresented:$vm.updateBeforeSent){
             Alert(
                 title: Text("Message"),
                 message: Text(vm.is_masked ? "投稿を公開しますか？":"投稿を非公開にしますか？"),
                 primaryButton: .default(Text("Yes"),
                                         action:{
                                             vm.updateShiritoriFlag(sf:sf)
+                                        }),
+                secondaryButton: .cancel(Text("cancel"))
+                
+            )
+        }
+        Spacer().alert(isPresented:$vm.reportBeforeSent){
+            Alert(
+                title: Text("Message"),
+                message: Text("この投稿を通報しますか？"),
+                primaryButton: .default(Text("Yes"),
+                                        action:{
+                                            vm.reportShiritori(sf:sf)
                                         }),
                 secondaryButton: .cancel(Text("cancel"))
                 
