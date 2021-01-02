@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var sf:ShiritoriFetcher
     @ObservedObject var topVm = ShiritoriTopViewModel()
+    @ObservedObject var mapVm = MapViewModel()
     @ObservedObject var listVm = ShiritoriListViewModel()
     @ObservedObject var contentVm = ContentViewModel()
     var visit = UserDefaults.standard.bool(forKey: "visit")
@@ -16,7 +17,7 @@ struct ContentView: View {
                         Image(systemName:"paperplane")
                         Text("回答画面")
                     }
-                MapFrontView(vm:topVm)
+                MapFrontView(vm:mapVm)
                     .tabItem{
                         Image(systemName:"mappin.and.ellipse")
                         Text("Map")

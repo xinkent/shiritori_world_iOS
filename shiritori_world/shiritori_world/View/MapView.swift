@@ -2,30 +2,45 @@ import SwiftUI
 import MapKit
 
 struct MapFrontView: View{
-    @ObservedObject var vm:ShiritoriTopViewModel
+    @ObservedObject var vm:MapViewModel
     @EnvironmentObject var sf:ShiritoriFetcher
-    init(vm: ShiritoriTopViewModel) {
+    init(vm: MapViewModel) {
         self.vm = vm
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Thonburi-Bold", size: 20)!]
     }
     var body: some View{
         NavigationView{
-            VStack{
-                Spacer().font(.headline).frame(height:20)
-                // タイトル
-                HStack{
-                    Text("移動総距離")
-                    Text("\(sf.shiritori.totalDistanceKM!)")
-                        .font(.title)
-                        .fontWeight(.bold)
-                    Text("Km")
+            ZStack{
+                VStack{
+                    Spacer().font(.headline).frame(height:20)
+                    // タイトル
+                    HStack{
+                        Text("移動総距離")
+                        Text("\(sf.shiritori.totalDistanceKM!)")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text("Km")
+                    }
+                    // Spacer().frame(maxHeight:40)
+                    // Text("これまでのしりとり")
+                    // しりとり選択画面
+                    SelectShiritoriView(vm:vm)
+                    // 通報ボタン
+                    HStack{
+                        Spacer()
+                        Text("通報")
+                            .foregroundColor(Color.blue)
+                            .font(.subheadline)
+                            .onTapGesture {
+                            vm.reportBeforeSend()
+                        }
+                        Spacer().frame(width:30)
+                    }
+                    // 地図画面
+                    MapView(vm:vm)
                 }
-                // Spacer().frame(maxHeight:40)
-                // Text("これまでのしりとり")
-                // しりとり選択画面
-                SelectShiritoriView(vm:vm)
-                // 地図画面
-                MapView(vm:vm)
+                // アラートウィンドウ
+                MapAlertView(vm: vm)
             }.navigationBarTitle("しりとりマップ", displayMode: .inline)
         }.navigationViewStyle(StackNavigationViewStyle())
     }
@@ -33,7 +48,7 @@ struct MapFrontView: View{
 
 struct SelectShiritoriView: View{
     @EnvironmentObject var sf:ShiritoriFetcher
-    @ObservedObject var vm:ShiritoriTopViewModel
+    @ObservedObject var vm:MapViewModel
     var body: some View{
         HStack{
             Spacer().frame(height:30)
@@ -69,7 +84,7 @@ struct SelectShiritoriView: View{
 
 struct MapView:UIViewRepresentable{
     @EnvironmentObject var sf:ShiritoriFetcher
-    @ObservedObject var vm:ShiritoriTopViewModel
+    @ObservedObject var vm:MapViewModel
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
         let view = MKMapView(frame: .zero)
         view.delegate = context.coordinator
@@ -194,4 +209,40 @@ struct MapView:UIViewRepresentable{
 // 選択中のアノテーションを識別するため、カスタムアノテーションクラスを作成
 class CustomPointAnnotation: MKPointAnnotation {
     var isSelected:Bool = false
+}
+
+struct MapAlertView: View{
+    @ObservedObject var vm: MapViewModel
+    @EnvironmentObject var sf:ShiritoriFetcher
+    
+    var body: some View{
+        VStack{
+            Spacer().alert(isPresented:$vm.reportBeforeSent){
+                Alert(
+                    title: Text("Message"),
+                    message: Text("この投稿を通報しますか？"),
+                    primaryButton: .default(Text("Yes"),
+                                            action:{
+                                                vm.reportShiritori(sf:sf,order: sf.shiritori.shiritoriWords![vm.selection].id)
+                                            }),
+                    secondaryButton: .cancel(Text("cancel"))
+                    
+                )
+            }
+            Spacer().alert(isPresented: $vm.isSent) {
+                Alert(title: Text("Message"),
+                      message: Text("送信されました"),
+                      dismissButton: .default(Text("OK")
+                    )
+                )
+            }
+            Spacer().alert(isPresented: $vm.isError) {
+                Alert(title: Text("Message"),
+                      message: Text("送信できませんでした"),
+                      dismissButton: .default(Text("OK")
+                    )
+                )
+            }
+        }
+    }
 }
