@@ -3,6 +3,8 @@ import WebKit
 
 struct SettingView: View {
     @State var showModal = false
+    var versionLabel = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    var buildLabel = Bundle.main.infoDictionary!["CFBundleVersion"] as! String
     init() {
             UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Thonburi-Bold", size: 20)!]
     }
@@ -65,7 +67,8 @@ struct SettingView: View {
                     Image(systemName:"gear")
                         .foregroundColor(.black)
                     Spacer()
-                    Text("ver 1.0.6")
+                        Text("ver \(self.versionLabel).\(self.buildLabel)")
+                    // Text("ver 1.0.6")
                     Spacer().frame(width: 15)
                         }
                 }
