@@ -14,11 +14,12 @@ struct FirstView: View {
     var visit = UserDefaults.standard.bool(forKey: "visit")
     var body: some View {
         VStack{
+            Spacer().frame(height:30)
             Text("本アプリを利用するためには、利用規約に同意する必要があります。下記の利用規約を読み、同意ボタンを押してください。")
             Spacer().frame(height:30)
             Text("利用規約").font(.title)
             Divider()
-            EULAView().frame(height:500)
+            EULAView()
             Divider()
             HStack{
                 Toggle(isOn: $readPolicy){
@@ -31,6 +32,7 @@ struct FirstView: View {
             }){
                 Text("送信")
             }.disabled(!readPolicy)
+            Spacer().frame(height:50)
         }
     }
 }
